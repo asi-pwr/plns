@@ -1,0 +1,10 @@
+from django.db import models
+from django.utils import timezone
+from django.utils import datetime
+
+class Payment(models.Model):
+    datetime = models.DateTimeField('Date and Time')
+    amount = models.FloatField('Amount')
+    pricePerUnit = models.FloatField('Price per unit')
+    weight = models.FloatField('Weight', blank=True)
+    
