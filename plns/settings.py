@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'plns.users',
-    'plns.payments'
+    'plns.payments',
+    'mptt'
 )
 
 MIDDLEWARE_CLASSES = (
