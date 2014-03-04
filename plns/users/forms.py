@@ -11,10 +11,10 @@ class UserCreationForm(forms.ModelForm):
     }
 
     password1 = forms.CharField(label=_("Password"),
-        widget=forms.PasswordInput)
+                                widget=forms.PasswordInput)
     password2 = forms.CharField(label=_("Password confirmation"),
-        widget=forms.PasswordInput,
-        help_text=_("Enter the same password as above, for verification."))
+                                widget=forms.PasswordInput,
+                                help_text=_("Enter the same password as above, for verification."))
 
     class Meta:
         model = get_user_model()
@@ -42,7 +42,7 @@ class UserCreationForm(forms.ModelForm):
         return password2
 
     def save(self, commit=True):
-        user = super(EmailUserCreationForm, self).save(commit=False)
+        user = super(UserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         if commit:
             user.save()
@@ -56,7 +56,7 @@ class UserChangeForm(forms.ModelForm):
         model = get_user_model()
 
     def __init__(self, *args, **kwargs):
-        super(EmailUserChangeForm, self).__init__(*args, **kwargs)
+        super(UserChangeForm, self).__init__(*args, **kwargs)
         f = self.fields.get('user_permissions', None)
         if f is not None:
             f.queryset = f.queryset.select_related('content_type')

@@ -9,7 +9,7 @@ from .models import User
 class UserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Permissions'), {'fields': ('is_staff', 'is_superuser', 'user_permissions')}),
+        (_('Permissions'), {'fields': ('is_superuser', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
     add_fieldsets = (
@@ -21,7 +21,7 @@ class UserAdmin(UserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
     list_display = ('email', 'is_staff')
-    list_filter = ('is_staff', 'is_superuser')
+    list_filter = ('is_superuser',)
     search_fields = ('email',)
     ordering = ('email',)
     filter_horizontal = ('groups', 'user_permissions',)
