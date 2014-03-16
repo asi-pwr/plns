@@ -1,0 +1,90 @@
+\subsection*{Opis wycinka rzeczywistości}
+Baza danych ma przechowywać szczegółowe informacje o filmach wyświetlanych w danym kinie, a także rezerwacjach na konkretne spektakle.
+Każdy zainteresowany (użytkownik) powinien mieć możliwość zobaczenia jakie filmy są wyświetlane, w jakim czasie i w jakiej sali.
+Dodatkowo, jeśli zarejestruje się w systemie, będzie miał możliwość rezerwacji miejsc na spektaklach, a także zobaczenia historii swoich poprzednich rejestracji.
+Klienci będą mogli także ocenić filmy na które mieli rezerwacje. W przypadku pomyłki, klient powinien zawsze mieć możliwość edycji wystawionej oceny. Średnia z tych ocen byłaby pokazywana użytkownikom razem z innymi informacjami o filmie.
+Klienci będą mogli komentować dowolne filmy, w celu np. poznania opini innych osób, czy warto dokonać na niego rezerwacji.
+ 
+Przechowywane będą też informacje o osobach uczestniczących przy tworzeniu filmów. Osoby takie to na przykład reżyser, scenarzysta, główny bohater, trzecioplanowy bohater grający postać X itp. Trzeba wziąć pod uwagę, że w każdej roli może występować więcej niż jedna osoba.
+
+Kino ma dowolną, ustaloną ilość sal, położonych na jednym lub więcej piętrach. Dodawaniem, modyfikowaniem lub ewentualnym usuwaniem sal zajmuje się wyłącznie kierownik. Każda z sal ma skończoną ilość miejsc, ponumerowanych w różny sposób liczbami naturalny. Pracownik kina musi wprowadzić numer każdego miejsca w sali do bazy danych.
+
+Każdy film będzie pokazywany wiele razy, więc trzeba przechowywać informacje o tym kiedy i w jakiej sali. Seanse mogą trwać różną ilość czasu ze względu na możliwe reklamy. Informacje o wyświetlanych reklamach nie będą przechowywane. W tym samym czasie, w jednej sali, nie mogą być wyświetlane dwa spektakle.
+Rezerwacji będzie mógł dokonać samodzielnie klient, lub kasjer w samym kinie. W przypadku gdy zrobi to kasjer, nie będzie wprowadzał informacji o użytkowniku dla którego zostało zarezerwowane miejsce (przyjmujemy wtedy, że rezerwaja została dokonana na użytkownika anonimowego).
+
+Klienci, po obejrzanym filmie, będą mogli na niego zagłosować. Zakłada się, że obejrzany film to jest taki, na który klient miał rezerwację i którego wyświetlenie się zakończyło. Użytkownicy widzieliby tylko średnią z głosów oddanych na film. Będą mogli także komentować dowolne filmy, niezależnie od tego, czy je widzieli. Mogą także edytować swoje komentarze przez dwa dni od wysłania, ale nie mogą ich usunąć. Pracownicy kina mogą usunąć i edytować każdy komentarz w dowolnym czasie. Przeglądać komentarze może każdy.
+
+System nie może pozwolić na rezerwację klientom, którzy nie osiągneli minimalnego wieku określonego dla filmu.
+Nie może również pozwolić na rezerwację tego samego miejsca w tym samym czasie więcej niż jeden raz. Jest jednak dopuszczalne, by jeden klient zarezerwował więcej niż jedno miejsce w danym czasie.
+
+
+\subsection*{Wymagania funkcjonalne}
+
+\subsubsection*{Wymagania funkcjonalne klientów}
+\begin{description}[style=nextline]
+	\item[] Zakładanie nowego konta w systemie.
+	\item[] Logowanie się na swoje konto.
+	\item[] Przeglądanie filmów, komentarzy, spektaklów.
+	\item[] Sprawdzanie dostępności miejsc na spektakl.
+	\item[] Składanie nowych rezerwacji.
+	\item[] Ocenianie obejrzanych filmów.
+	\item[] Komentowanie filmów.
+	\item[] Sprawdzanie średniej oceny, jaką dostał dany film. 
+\end{description}
+
+\subsubsection*{Wymagania funkcjonalne kierowników}
+\begin{description}[style=nextline]
+	\item[] Logowanie się na swoje konto.
+	\item[] Przeglądanie wszystkich danych zapisanych do bazy.
+	\item[] Zarządzanie salami (dodawanie, usuwanie, modyfikacja).
+	\item[] Przydzielanie miejsc do sal.
+	\item[] Dodawanie filmów, modyfikacja ich danych, w raz z danymi z nimi związanymi (gatunki, określanie osób, które brały udział w tworzeniu).
+	\item[] Składanie rezerwacji.
+\end{description}
+
+\subsubsection*{Wymagania funkcjonalne menedżerów}
+\begin{description}[style=nextline]
+	\item[] Logowanie się na swoje konto.
+	\item[] Przeglądanie filmów, komentarzy.
+	\item[] Usuwanie komentarzy i ocen.
+	\item[] Dodawanie filmów, modyfikacja ich danych, w raz z danymi z nimi związanymi (gatunki, określanie osób, które brały udział w tworzeniu).
+	\item[] Tworzenie, modyfikacja i usuwanie spektaklów.
+	\item[] Składanie rezerwacji.
+\end{description}
+
+\subsubsection*{Wymagania funkcjonalne kasjerów}
+\begin{description}[style=nextline]
+	\item[] Logowanie się na swoje konto.
+	\item[] Przeglądanie filmów, komentarzy.
+	\item[] Dodawanie filmów i ich edycja, w raz z danymi z nimi związanymi (gatunki, określanie osób, które brały udział w tworzeniu).
+	\item[] Składanie rezerwacji.
+\end{description}
+
+
+\subsection*{Wymagania niefunkcjonalne}
+\begin{description}[style=nextline]
+	\item[Notacja diagramów ERD] Do opracowania diagramów ERD zostanie wykorzystana notacja zaczerpnięta z książki ,,Projektowanie Relacyjnych Baz Danych'', Hanna Mazur, Zygmunt Mazur, Oficyna Wydawnicza Politechniki Wrocławskiej, Wrocław 2004.
+	\item[Platforma sprzętowa] Komputer klasy PC z procesorem 500 MHz lub szybszym, co najmniej 256 MB pamięci RAM, 3,5 GB wolnego miejsca na dysku. Monitor o rozdzielczości 1024 x 768 lub wyższej. Mysz, klawiatura.
+	\item[Platforma systemowa] System operacyjny Windows XP (wymagany jest dodatek SP3) w wersji 32-bitowej, Windows 7, Windows Vista z dodatkiem Service Pack (SP) 1, Windows Server 2003 z dodatkiem SP2 z programem MSXML 6.0 (tylko 32-bitowa wersja pakietu Office), Windows Server 2008 lub nowszy w wersji 32- lub 64-bitowej.
+	\item[Środowisko implementacyjne] Microsoft Access 2010.
+	\item[Rodzaj bazy danych] Relacyjna.
+	\item[Skalowalność] W kinie dziennie odbywa się około 45 spektaklów. Sale mają od 200 do 300 miejsc siedzących. Wynika z tego, że dziennie będzie się pojawiało ponad 9000 nowych rekordów związanych z rezerwacjami.
+	\item[Sposób archiwizacji danych] Raz w tygodniu będą się wykonywały automatyczne kopie zapasowe bazy danych.
+\end{description}
+
+	
+\subsection*{Słownik pojęć}
+Poniżej zostają przedstawione najwazniejsze pojęcia związane z projektem.
+\begin{description}[style=nextline]
+	\item[Użytkownik] Osoba zainteresowana korzystaniem z systemu.
+	\item[Użytkownik anonimowy] Osoba niezarejestrowana w systemie kina, chcąca dokonać rezerwacji na seans bezpośrednio u kasjera.
+	\item[Klient] Użytkownik zarejestrowany w systemie.
+	\item[Kasjer] Osoba sprzedająca bilety przy wejściu do kina.
+	\item[Menedżer] Osoba zajmująca się dodawaniem spektaklów, przydzielaniem ich do sal i filmów.
+	\item[Kierownik] Kierownik kina - osoba o największych uprawnieniach w kinie. To on mianuje pracowników na stanowiska kasjerów lub menedżerów. Kino może posiadać wielu kierowników.
+    \item[Pracownik] Kasjer, menedżer, lub kierownik kina.
+	\item[Film] Pokaz kinematograficzny, który może być wyświetlany wiele razy w wielu salach.
+	\item[Spektakl] Pojedyńcze wydarzenie odbywające się w danej sali.
+	\item[Miejsce] Pojedyńcze miejsce siedzące w sali.
+	\item[Filmowiec] Osoba, która uczestniczyła przy produkcji filmu.
+\end{description}

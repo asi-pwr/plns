@@ -1,0 +1,80 @@
+% OGÓLNE
+\regula Administrowaniem bazy zajmuje się kierownik kina.
+\regula Nazwy klientów muszą być unikatowe.
+
+% SALE
+\regula Dane sal wpisuje kierownik kina.
+\regula Nie może być dwóch sal o tym samym numerze.
+\regula Modyfikować dane sal może jedynie kierownik kina.
+\regula Usuwać sale może wyłącznie kierownik.
+\regula Każda sala ma unikalny numer nadany przez kierownika kina.
+\regula Kierownik musi określić numer piętra, na którym znajduje się sala.
+\regula W sali może odbywać się w tym samym czasie tylko jeden spektakl.
+
+% Miejsca
+\regula Dodać miejsce w sali może tylko kierownik kina.
+\regula Nie może być dwóch miejsc o tym samym numerze w jednej sali.
+\regula Zmodyfikować dane miejsca w sali może tylko kierownik kina.
+\regula Usunąć miejsce w sali może tylko kierownik kina.
+\regula Każdy klient może zobaczyć niezarezerwowane miejsca w sali.
+\regula Każdy pracownik może zobaczyć wszystkie miejsca w sali.
+
+% SPEKTAKLE
+\regula Dane spektaklów wpisuje kierownik kina lub menedżer.
+\regula W czasie spektaklu odbywa się dokładnie jeden film.
+\regula Różnica pomiędzy czasem zakończenia a czasem rozpoczęcia spektaklu nie może być mniejsza od czasu trwania filmu.
+\regula Spektaklu nie można usunąć gdy została na niego wykonana co najmniej jedna rezerwacja.
+\regula Modyfikować i usuwać spektakle może jedynie kierownik kina lub menedżer.
+
+% Filmy
+\regula Dodawać i edytować dane filmów może dowolny pracownik kina.
+\regula Usuwać filmy może jedynie kierownik kina lub menedżer.
+\regula Jeżeli klienci napisali komentarze do usuwanego filmu, zostają one również usunięte z bazy.
+\regula W przypadku usuwania filmu, który został oceniony, usunięte zostają również oceny.
+
+% Filmowcy
+\regula Nowych filmowców może dodawać dowolny pracownik kina.
+\regula Dane filmowców może edytować jedynie kierownik lub menedżer.
+\regula Filmowców nie można usuwać.
+\regula Przy tworzeniu filmu mogło brać udział wiele filmowców.
+\regula Wiele filmowców może mieć tą samą rolę w jednym filmie.
+\regula Filmowiec biorący udział w tworzeniu filmu mógł być także zatrudniony przy produkcji innego, z tą samą lub inną rolą.
+
+% Gatunki
+\regula Film może być zakwalifikowany do jednego lub wielu gatunków.
+\regula Nowe gatunki może dodawać dowolny pracownik kina.
+\regula Dane gatunków może edytować jedynie kierownik lub menedżer.
+\regula Gatunków nie można usuwać.
+\regula Gatunki muszą mieć unikalne nazwy.
+
+% Rezerwacje
+\regula Dokonać rezerwacji na spektakl może klient lub kasjer. Gdy rezerwacji dokonuje kasjer, przyjmuje się, że dotyczy ona użytkownika anonimowego.
+\regula Klient, który nie jest w minimalnym wieku określonym w parametrach filmu, nie może dokonać na niego rezerwacji.
+\regula Klient może dokonać dowolną ilość rezerwacji na ten sam spektakl lub różne spektakle.
+\regula Na dane miejsce w spektaklu nie może być wykonana więcej niż jedna rezerwacja.
+\regula Rezerwacje można wykonać tylko przed rozpoczęciem filmu, który będzie wyświetlany na danym spektaklu.
+
+% Oceny
+\regula Klient może ocenić film wtedy i tylko wtedy, gdy ma rezerwację na jeden ze spekatkli na których odbywa się jego pokaz i ten spektakl się zakończył.
+\regula Klient może wystawić maksymalnie jedną ocenę na dany film.
+\regula Klient zawsze może zmienić swój stopień swojej oceny.
+\regula Klient nie może zupełnie usunąć swojej oceny.
+\regula Pracownik kina może usuwać dowolne oceny, lecz nie może zmieniać ich stopnia.
+
+% Komentarze
+\regula Klient może dodać wiele komentarzy do dowolnych filmów.
+\regula Klient może edytować swój komentarz do dwóch dni od daty jego napisania.
+\regula Klient nie może usuwać komentarzy.
+\regula Klient nie może edytować komentarzy innych.
+\regula Pracownik kina może usuwać dowolne komentarze.
+\regula Pracownik, w dowolnym czasie, może edytować komentarze klientów.
+\regula Komentarze może przeglądać każdy użytkownik.
+\regula Użytkownicy anonimowi nie mogą edytować komentarzy.
+\regula Uzytkownicy anonimowi nie mogą usuwać komentarzy.
+\regula Pracownik może być jednoczesnie klientem.
+
+% Klienci
+\regula Zakładać konta (dodawać nowego klienta) może każdy niezalogowany użytkownik systemu.
+\regula Nikt nie może usuwać klientów lub modyfikować ich dane.
+\regula Przeglądać klientów może dowolny pracownik kina.
+\regula Przeglądać swoje dane klienta może zalogowany użytkownik (klient).

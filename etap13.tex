@@ -1,0 +1,328 @@
+\subsection{Rejestracja}
+Użytkownicy: Użytkownik anonimowy
+
+Transakcje: \ref{TRA:Dodanie nowego klienta (rejestracja w serwisie)}
+\subsubsection*{\ref{TRA:Dodanie nowego klienta (rejestracja w serwisie)} Dodanie nowego klienta (rejestracja w serwisie)}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Klienci & IdKlienta & + &  & \\
+Klienci & Nazwa & + &  & \\
+Klienci & Haslo & + &  & \\
+Klienci & Email & + &  & \\
+Klienci & Imie & + &  & \\
+Klienci & Nazwisko & + &  & \\
+Klienci & DataUrodzenia & + &  & \\
+\hline\end{tabularx}
+\subsection{Odczyt danych o filmach}
+Użytkownicy: Uzytkownik anonimowy, Klient, Kasjer, Menedżer, Kierownik
+
+Transakcje: \ref{TRA:Wyszukanie spektaklów}, \ref{TRA:Wyszukiwanie filmów}, \ref{TRA:Wyświetlenie danych o gatunkach}, \ref{TRA:Wyświetlenie komentarzy filmu}, \ref{TRA:Wyświetlenie średniej oceny filmu}, \ref{TRA:Wyświetlenie danych o filmowcach}
+\subsubsection*{\ref{TRA:Wyszukanie spektaklów} Wyszukanie spektaklów}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Filmy & Tytul &  & + & \\
+Spektakle & CzasRozpoczecia &  & + & \\
+Spektakle & CzasZakonczenia &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyszukiwanie filmów} Wyszukiwanie filmów}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Filmy & IdFilmu &  & + & \\
+Filmy & Tytul &  & + & \\
+Filmy & Opis &  & + & \\
+Filmy & DataPremiery &  & + & \\
+Filmy & KrajPochodzenia &  & + & \\
+Filmy & CzasTrwania &  & + & \\
+Filmy & OgraniczenieWieku &  & + & \\
+Gatunki & IdGatunku &  & + & \\
+Gatunki & Nazwa &  & + & \\
+Filmowcy & IdFilmowca &  & + & \\
+Filmowcy & Imie &  & + & \\
+Filmowcy & Nazwisko &  & + & \\
+Filmowcy & DataUrodzenia &  & + & \\
+Filmowcy & Narodowosc &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyświetlenie danych o gatunkach} Wyświetlenie danych o gatunkach}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Gatunki & IdGatunku &  & + & \\
+Gatunki & Nazwa &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyświetlenie komentarzy filmu} Wyświetlenie komentarzy filmu}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Komentarze & IdKomentarza &  & + & \\
+Komentarze & IdFilmu &  & + & \\
+Komentarze & IdKlienta &  & + & \\
+Klienci & IdKlienta &  & + & \\
+Komentarze & Tytuł &  & + & \\
+Komentarze & Zawartosc &  & + & \\
+Komentarze & CzasNapisania &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyświetlenie średniej oceny filmu} Wyświetlenie średniej oceny filmu}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Oceny & IdFilmu &  & + & \\
+Oceny & Stopien &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyświetlenie danych o filmowcach} Wyświetlenie danych o filmowcach}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Filmowcy & IdFilmowca &  & + & \\
+Filmowcy & Imie &  & + & \\
+Filmowcy & Nazwisko &  & + & \\
+Filmowcy & DataUrodzenia &  & + & \\
+Filmowcy & Narodowosc &  & + & \\
+\hline\end{tabularx}
+\subsection{Akcje klienta}
+Użytkownicy: Klient
+
+Transakcje: \ref{TRA:Logowanie klienta}, \ref{TRA:Wyświetlenie danych aktualnie zalogowanego klienta}, \ref{TRA:Wyświetlenie informacji o wolnych miejscach}, \ref{TRA:Dodanie nowego komentarza}, \ref{TRA:Dodanie nowej oceny}, \ref{TRA:Modyfikacja danych oceny}
+\subsubsection*{\ref{TRA:Logowanie klienta} Logowanie klienta}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Klienci & Haslo &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyświetlenie danych aktualnie zalogowanego klienta} Wyświetlenie danych aktualnie zalogowanego klienta}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Klienci & IdKlienta &  & + & \\
+Klienci & Nazwa &  & + & \\
+Klienci & Haslo &  & + & \\
+Klienci & Email &  & + & \\
+Klienci & Imie &  & + & \\
+Klienci & Nazwisko &  & + & \\
+Klienci & DataUrodzenia &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyświetlenie informacji o wolnych miejscach} Wyświetlenie informacji o wolnych miejscach}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Miejsca & NrMiejsca &  & + & \\
+Miejsca & NrRzedu &  & + & \\
+Rezerwacje & IdMiejsca &  & + & \\
+Spektakle & IdSpektaklu &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Dodanie nowego komentarza} Dodanie nowego komentarza}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Komentarze & IdKomentarza & + &  & \\
+Komentarze & IdFilmu & + &  & \\
+Komentarze & IdKlienta & + &  & \\
+Komentarze & Tytuł & + &  & \\
+Komentarze & Zawartosc & + &  & \\
+Komentarze & CzasNapisania & + &  & \\
+Filmy & IdFilmu &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Dodanie nowej oceny} Dodanie nowej oceny}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Oceny & IdOceny & + &  & \\
+Oceny & IdFilmu & + &  & \\
+Oceny & IdKlienta & + &  & \\
+Oceny & Stopien & + &  & \\
+Oceny & CzasDodania & + &  & \\
+Filmy & IdFilmu &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Modyfikacja danych oceny} Modyfikacja danych oceny}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Oceny & IdOceny &  & + & \\
+Oceny & IdFilmu &  & + & \\
+Oceny & IdKlienta &  & + & \\
+Oceny & Stopien &  & + & +\\
+Oceny & CzasDodania &  & + & \\
+\hline\end{tabularx}
+\subsection{Akcje klienta lub pracownika}
+Użytkownicy: Klient, Kasjer, Menedżer, Kierownik
+
+Transakcje: \ref{TRA:Rezerwacja miejsca}, \ref{TRA:Modyfikacja danych komentarza}
+\subsubsection*{\ref{TRA:Rezerwacja miejsca} Rezerwacja miejsca}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Rezerwacje & IdKlienta & + &  & \\
+Rezerwacje & IdMiejsca & + &  & \\
+Rezerwacje & IdSpektaklu & + &  & \\
+Rezerwacje & CzasWykonania & + &  & \\
+Miejsca & NrMiejsca &  & + & \\
+Miejsca & IdMiejsca &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Modyfikacja danych komentarza} Modyfikacja danych komentarza}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Komentarze & IdKomentarza &  & + & \\
+Komentarze & IdFilmu &  & + & \\
+Komentarze & IdKlienta &  & + & \\
+Komentarze & Tytuł &  & + & +\\
+Komentarze & Zawartosc &  & + & +\\
+Komentarze & CzasNapisania &  & + & \\
+\hline\end{tabularx}
+\subsection{Akcje pracownika}
+Użytkownicy: Kasjer, Menedżer, Kierownik
+
+Transakcje: \ref{TRA:Wyświetlenie danych o salach}, \ref{TRA:Wyświetlenie informacji o miejscach}, \ref{TRA:Dodanie nowego filmu}, \ref{TRA:Modyfikacja danych filmu}, \ref{TRA:Dodanie nowego gatunku}, \ref{TRA:Usunięcie oceny}, \ref{TRA:Dodanie nowego filmowca}, \ref{TRA:Wyświetlenie danych klienta}, \ref{TRA:Wyświetlenie danych klientów}
+\subsubsection*{\ref{TRA:Wyświetlenie danych o salach} Wyświetlenie danych o salach}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Sale & NrSali &  & + & \\
+Sale & NrPietra &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyświetlenie informacji o miejscach} Wyświetlenie informacji o miejscach}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Miejsca & NrMiejsca &  & + & \\
+Miejsca & NrRzedu &  & + & \\
+Rezerwacje & IdMiejsca &  & + & \\
+Spektakle & IdSpektaklu &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Dodanie nowego filmu} Dodanie nowego filmu}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Filmy & IdFilmu & + &  & \\
+Filmy & Tytul & + &  & \\
+Filmy & Opis & + &  & \\
+Filmy & DataPremiery & + &  & \\
+Filmy & KrajPochodzenia & + &  & \\
+Filmy & CzasTrwania & + &  & \\
+Filmy & OgraniczenieWieku & + &  & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Modyfikacja danych filmu} Modyfikacja danych filmu}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Filmy & IdFilmu &  & + & +\\
+Filmy & Tytul &  & + & +\\
+Filmy & Opis &  & + & +\\
+Filmy & DataPremiery &  & + & +\\
+Filmy & KrajPochodzenia &  & + & +\\
+Filmy & CzasTrwania &  & + & +\\
+Filmy & OgraniczenieWieku &  & + & +\\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Dodanie nowego gatunku} Dodanie nowego gatunku}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Gatunki & IdGatunku & + &  & \\
+Gatunki & Nazwa & + &  & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Usunięcie oceny} Usunięcie oceny}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Oceny & IdOceny &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Dodanie nowego filmowca} Dodanie nowego filmowca}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Filmowcy & IdFilmowca & + &  & \\
+Filmowcy & Imie & + &  & \\
+Filmowcy & Nazwisko & + &  & \\
+Filmowcy & DataUrodzenia & + &  & \\
+Filmowcy & Narodowosc & + &  & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyświetlenie danych klienta} Wyświetlenie danych klienta}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Klienci & IdKlienta &  & + & \\
+Klienci & Nazwa &  & + & \\
+Klienci & Haslo &  & + & \\
+Klienci & Email &  & + & \\
+Klienci & Imie &  & + & \\
+Klienci & Nazwisko &  & + & \\
+Klienci & DataUrodzenia &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Wyświetlenie danych klientów} Wyświetlenie danych klientów}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Klienci & IdKlienta &  & + & \\
+Klienci & Nazwa &  & + & \\
+Klienci & Haslo &  & + & \\
+Klienci & Email &  & + & \\
+Klienci & Imie &  & + & \\
+Klienci & Nazwisko &  & + & \\
+Klienci & DataUrodzenia &  & + & \\
+\hline\end{tabularx}
+\subsection{Akcje kierownika}
+Użytkownicy: Kierownik
+
+Transakcje: \ref{TRA:Dodanie nowej sali}, \ref{TRA:Modyfikacja danych sali}, \ref{TRA:Usunięcie sali}, \ref{TRA:Dodanie miejsca do sali}, \ref{TRA:Modyfikacja danych miejsca}, \ref{TRA:Usunięcie miejsca}
+\subsubsection*{\ref{TRA:Dodanie nowej sali} Dodanie nowej sali}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Sale & NrSali & + &  & \\
+Sale & NrPietra & + &  & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Modyfikacja danych sali} Modyfikacja danych sali}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Sale & NrSali &  & + & +\\
+Sale & NrPietra &  & + & +\\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Usunięcie sali} Usunięcie sali}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Sale & NrSali &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Dodanie miejsca do sali} Dodanie miejsca do sali}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Miejsca & IdMiejsca & + &  & \\
+Miejsca & NrSali & + &  & \\
+Miejsca & NrMiejsca & + &  & \\
+Miejsca & NrRzedu & + &  & \\
+Sale & NrSali &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Modyfikacja danych miejsca} Modyfikacja danych miejsca}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Miejsca & IdMiejsca &  & + & +\\
+Miejsca & NrSali &  & + & +\\
+Miejsca & NrMiejsca &  & + & +\\
+Miejsca & NrRzedu &  & + & +\\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Usunięcie miejsca} Usunięcie miejsca}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Miejsca & IdMiejsca &  & + & \\
+\hline\end{tabularx}
+\subsection{Akcje menedżera}
+Użytkownicy: Menedżer, Kierownik
+
+Transakcje: \ref{TRA:Dodanie nowego spektaklu}, \ref{TRA:Modyfikacja danych spektaklu}, \ref{TRA:Usunięcie spektaklu}, \ref{TRA:Modyfikacja danych gatunku}, \ref{TRA:Modyfikacja danych filmowca}
+\subsubsection*{\ref{TRA:Dodanie nowego spektaklu} Dodanie nowego spektaklu}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Spektakle & IdSpektaklu & + &  & \\
+Spektakle & IdFilmu & + &  & \\
+Spektakle & NrSali & + &  & \\
+Spektakle & CzasRozpoczecia & + &  & \\
+Spektakle & CzasZakonczenia & + &  & \\
+Sale & NrSali &  & + & \\
+Filmy & IdFilmu &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Modyfikacja danych spektaklu} Modyfikacja danych spektaklu}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Spektakle & IdSpektaklu &  & + & +\\
+Spektakle & IdFilmu &  & + & +\\
+Spektakle & NrSali &  & + & +\\
+Spektakle & CzasRozpoczecia &  & + & +\\
+Spektakle & CzasZakonczenia &  & + & +\\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Usunięcie spektaklu} Usunięcie spektaklu}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Spektakle & IdSpektaklu &  & + & \\
+Rezerwacje & IdSpektaklu &  & + & \\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Modyfikacja danych gatunku} Modyfikacja danych gatunku}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Gatunki & IdGatunku &  & + & +\\
+Gatunki & Nazwa &  & + & +\\
+\hline\end{tabularx}
+\subsubsection*{\ref{TRA:Modyfikacja danych filmowca} Modyfikacja danych filmowca}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}\hline
+Relacja & Pole & Zapis & Odczyt & Modyfikacja \\\hline
+Filmowcy & IdFilmowca &  & + & +\\
+Filmowcy & Imie &  & + & +\\
+Filmowcy & Nazwisko &  & + & +\\
+Filmowcy & DataUrodzenia &  & + & +\\
+Filmowcy & Narodowosc &  & + & +\\
+\hline\end{tabularx}

@@ -1,0 +1,534 @@
+Pola:
+    NrSali: 
+        opis: Numer sali
+        typ: Int+
+        pk: Sale
+        flagi: uniq
+    NrPietra: 
+        opis: Numer piętra na którym znajduje się sala
+        typ: Int+
+    IdMiejsca: 
+        opis: Numer identyfikacyjny miejsca,
+        typ: Int+
+        flagi: auto
+        pk: Miejsca
+    NrMiejsca:
+        opis: Numer miejsca
+        typ: Int+
+    NrRzedu:
+        opis: Numer rzędu w którym znajduje się miejsce
+        typ: Int+
+    IdSpektaklu:
+        opis: Identyfikator spektaklu
+        typ: Int+
+        flagi: auto
+        pk: Spektakle
+    CzasRozpoczecia:
+        opis: Data i czas rozpoczęcia spektaklu
+        typ: DateTime
+        ograniczenia: [< CzasZakończenia]
+    CzasZakonczenia:
+        opis: Data i czas zakończenia spektaklu
+        typ: DateTime
+    IdRezerwacji:
+        opis: Identyfikator rezerwacji
+        typ: Int+
+        flagi: auto
+        pk: Rezerwacje
+    CzasWykonania:
+        opis: Data i czas wykonania rezerwacji
+        typ: DateTime
+    IdFilmu:
+        opis: Identyfikator filmu
+        typ: Int+
+        flagi: auto
+        pk: Filmy
+    Tytul:
+        opis: Tytuł filmu
+        typ: String
+    Opis:
+        opis: Opis filmu
+        typ: String
+    DataPremiery:
+        opis: Data premiery w kinie
+        typ: Date
+        flagi: opc
+    KrajPochodzenia:
+        opis: Kraj pochodzenia filmu
+        typ: String
+        flagi: opc
+        ograniczenia: [długość > 2]
+    CzasTrwania:
+        opis: Czas trwania filmu (w sekundach)
+        typ: Int+
+    OgraniczenieWieku:
+        opis: Ograniczenie wiekowe filmu
+        typ: Int+
+    IdGatunku:
+        opis: Identyfikator gatunku
+        typ: Int+
+        flagi: auto
+        pk: Gatunki
+    Nazwa:
+        opis: Nazwa gatunku
+        typ: String
+    IdKomentarza:
+        opis: Identyfikator komentarza
+        typ: Int+
+        flagi: auto
+        pk: Komentarze
+    TytulKomentarza:
+        nazwa: Tytuł
+        opis: Tytuł komentarza
+        typ: String
+        flagi: opc
+    Zawartosc:
+        opis: Treść komentarza
+        typ: String
+    CzasNapisania:
+        opis: Data i czas napisania komentarza
+        typ: DateTime
+    IdOceny:
+        opis: Identyfikator oceny
+        typ: Int+
+        flagi: auto
+        pk: Oceny
+    Stopien:
+        opis: Stopień oceny
+        typ: Int+
+        ograniczenia: [< 5]
+    CzasDodania:
+        opis: Data i czas dodania oceny
+        typ: DateTime
+        domyślnie: NOw()
+    IdKlienta:
+        opis: Identyfikator klienta
+        typ: Int+
+        flagi: auto
+        pk: Klienci
+    NazwaKlienta:
+        nazwa: Nazwa
+        opis: Nazwa użytkownika (jego ,,Login'')
+        typ: String
+        ograniczenia: [długość > 3]
+    Haslo:
+        opis: Hasło użytkownika
+        typ: String
+    Email:
+        opis: Adres poczty elektronicznej
+        typ: String
+    Imie:
+        opis: Imie klienta
+        typ: String
+        ograniczenia: [długość > 2]
+    Nazwisko:
+        opis: Nazwisko klienta
+        typ: String
+        ograniczenia: [długość > 2]
+    DataUrodzenia:
+        opis: Data urodzenia klienta
+        typ: Date
+    IdFilmowca:
+        opis: Identyfikator filmowca
+        typ: Int+
+        flagi: auto
+        pk: Filmowcy
+    ImieFilmowca:
+        nazwa: Imie
+        opis: Imię filmowca
+        typ: String
+        ograniczenia: [długość > 2]
+    NazwiskoFilmowca:
+        nazwa: Nazwisko
+        opis: Nazwisko filmowca
+        typ: String
+        ograniczenia: [długość > 2]
+    DataUrodzeniaFilmowca:
+        nazwa: DataUrodzenia
+        opis: Data urodzenia filmowca
+        typ: Date
+        flagi: opc
+    Narodowosc:
+        opis: Narodowość filmowca
+        typ: String
+        flagi: opc
+        ograniczenia: [długość > 2]
+    NazwaRoli:
+        opis: Nazwa roli filmowca przy tworzeniu filmu
+        typ: String
+    IdKasjera:
+        opis: Identyfikator kasjera
+        typ: Int+
+        flagi: auto
+        pk: Kasjerzy
+    Login:
+        opis: Nazwa kasjera
+        typ: String
+    Haslo:
+        opis: Hasło kasjera
+        typ: String
+    Imie:
+        opis: Imię kasjera
+        typ: String
+    Nazwisko:
+        opis: Nazwisko kasjera
+        typ: String
+Tabele:
+    Sale:
+        encja: Sala
+        atrybuty:
+            - NrSali
+            - NrPietra
+        przykłady:
+            - [101, 1]
+            - [203, 2]
+            - [204, 2]
+            - [301, 3]
+            - [321, 4]
+    Miejsca:
+        encja: Miejsce
+        atrybuty:
+            - IdMiejsca
+            - NrSali
+            - NrMiejsca
+            - NrRzedu
+        przykłady:
+            - [1, 101, 1, 1]
+            - [2, 101, 2, 1]
+            - [3, 301, 3, 1]
+            - [4, 101, 3, 1]
+    Spektakle:
+        encja: Spektakl
+        atrybuty:
+            - IdSpektaklu
+            - IdFilmu
+            - NrSali
+            - CzasRozpoczecia
+            - CzasZakonczenia
+        przykłady:
+            - [1, 1, 2, '2012-04-12 10:30', '2012-04-12 13:00']
+            - [2, 1, 2, '2012-04-12 13:30', '2012-04-12 15:30']
+            - [3, 3, 1, '2012-04-15 23:30', '2012-04-16 01:30']
+            - [4, 3, 2, '2012-04-15 23:30', '2012-04-16 01:30']
+    Rezerwacje:
+        encja: Rezerwacja
+        atrybuty:
+            - IdRezerwacji
+            - IdKlienta
+            - IdMiejsca
+            - IdSpektaklu
+            - CzasWykonania
+        przykłady:
+            - [1, 1, 1, 1, '2012-04-15 23:30:23']
+            - [2, 1, 2, 1, '2012-04-15 23:32:12']
+            - [3, null, 4, 4, '2012-04-16 12:23:43']
+            - [4, 3, 2, 5, '2012-04-17 10:40:08']
+    Filmy:
+        encja: Film
+        atrybuty:
+            - IdFilmu
+            - Tytul
+            - Opis
+            - DataPremiery
+            - KrajPochodzenia
+            - CzasTrwania
+            - OgraniczenieWieku
+        przykłady:
+            - [1, Forrest Gump, Wyśmienity film, 1999-02-13, USA, 7200, 15]
+            - [2, Blood2, Dobry horror!, 2002-01-15, Kanada, 6800, 18]
+            - [3, Titanic, Klasyczny film., 1997-03-10, USA, 7000, 13]
+    Gatunki:
+        encja: Gatunek
+        atrybuty:
+            - IdGatunku
+            - Nazwa
+        przykłady:
+            - [1, Komedia]
+            - [2, Horror]
+            - [3, SF]
+            - [4, Thriller]
+            - [5, Miłosny]
+            - [6, Dokumentalny]
+            - [7, Fabularny]
+            - [8, Dramat]
+            - [9, Rysunkowy]
+            - [10, Animowany]
+    GatunkiFilmow:
+        atrybuty:
+            - IdFilmu
+            - IdGatunku
+        przykłady:
+            - [1, 1]
+            - [2, 1]
+            - [1, 2]
+            - [3, 2]
+            - [3, 5]
+            - [3, 6]
+            - [1, 5]
+            - [1, 4]
+            - [43, 5]
+    Komentarze:
+        encja: Komentarz
+        atrybuty:
+            - IdKomentarza
+            - IdFilmu
+            - IdKlienta
+            - TytulKomentarza
+            - Zawartosc
+            - CzasNapisania
+        przykłady:
+            - [1, 1, 1, Moja opinia, Film był bardzo słaby!, '2012-04-13 10:23:32']
+            - [2, 1, 2, null, A moim zdaniem był dobry., '2012-04-13 10:25:35']
+            - [3, 1, 1, null, Nie zgadzam się z Tobą., '2012-04-13 10:34:22']
+    Oceny:
+        encja: Ocena
+        atrybuty:
+            - IdOceny
+            - IdFilmu
+            - IdKlienta
+            - Stopien
+            - CzasDodania
+        przykłady:
+            - [1, 1, 1, 3, '2012-04-13 10:34:22']
+            - [2, 1, 3, 5, '2012-04-15 12:18:12']
+            - [3, 3, 3, 3, '2012-04-15 14:38:55']
+            - [4, 5, 7, 3, '2012-04-17 18:56:25']
+            - [5, 35, 17, 0, '2012-05-17 13:23:15']
+            - [6, 35, 355, 1, '2012-05-17 17:37:46']
+            - [7, 213, 17, 0, '2012-05-18 23:26:20']
+    Klienci:
+        encja: Klient
+        atrybuty:
+            - IdKlienta
+            - NazwaKlienta
+            - Haslo
+            - Email
+            - Imie
+            - Nazwisko
+            - DataUrodzenia
+        przykłady:
+            - [1, ala123, kwiatki4, ala@o2.pl, Ala, Kowalska, 1990-03-23]
+            - [2, ola321, kwiatki4, ola@tlen.pl, Ola, Kowalska, 1984-02-13]
+            - [3, aleksander, tajne123, jan@wp.pl, Aleksander, Nowak, 1982-06-23]
+            - [4, helioslepszy, helioss2, adm@hell.pl, Piotr, Ostrowski, 1995-02-17]
+    Filmowcy:
+        encja: Filmowiec
+        atrybuty:
+            - IdFilmowca
+            - ImieFilmowca
+            - NazwiskoFilmowca
+            - DataUrodzeniaFilmowca
+            - Narodowosc
+        przykłady:
+            - [1, Cezary, Pazura, 1960-03-24, Polska]
+            - [2, Bruce, Willis, 1975-01-16, USA]
+            - [3, Steven, Spielberg, 1954-07-14, USA]
+            - [4, Patrick, Paul, 1985-03-21, USA]
+            - [5, Jan, Machulski, 1965-04-11, Polska]
+            - [6, Adam, Kowalski, 1935-01-21, Polska]
+            - [7, Anna, Bielicka, 1915-10-9, Polska]
+    Role:
+        atrybuty:
+            - IdFilmowca
+            - IdFilmu
+            - NazwaRoli
+        przykłady:
+            - [1, 1, Aktor]
+            - [1, 2, Statysta]
+            - [2, 1, Reżyser]
+            - [50, 12, Bohater pierwszoplanowy]
+            - [13, 12, Kamerzysta]
+            - [112, 12, Aktor]
+    Kasjerzy:
+        encja: Kasjer
+        atrybuty:
+            - IdKasjera
+            - Login
+            - Haslo
+            - Email
+            - Imie
+            - Nazwisko
+        przykłady:
+            - [1, jkowalski, asdf, jkowalski@p.pl, Jan, Kowalski]
+            - [2, andrzej, 123456789, twardy@kino.pl, Andrzej, Twardy]
+Związki:
+    Uczestniczy: [Klienci, Rezerwacje]
+    Dotyczy: [Spektakle, Rezerwacje]
+    Jest: [Miejsca, Rezerwacje]
+    Zawiera: [Filmy, Spektakle]
+    'Ma': [Filmy, GatunkiFilmow]
+    'Ma ': [GatunkiFilmow, Gatunki]
+    'Zatrudniony': [Filmowcy, Role]
+    'Zatrudniony ': [Role, Filmy]
+    Oddal: [Klienci, Oceny]
+    Dodal: [Klienci, Komentarze]
+    PosiadaO: [Filmy, Oceny]
+    PosiadaK: [Filmy, Komentarze]
+    PosiadaM: [Sale, Miejsca]
+    OdbywaSie: [Sale, Spektakle]
+    
+Perspektywy:
+    Rejestracja:
+        Userzy: [Użytkownik anonimowy]
+        Transakcje: 
+            -
+                Nazwa: Dodanie nowego klienta (rejestracja w serwisie)
+                Tabele: [Klienci]
+                Pola: ['*', [], []]
+    Odczyt danych o filmach:
+        Userzy: [Uzytkownik anonimowy, Klient, Kasjer, Menedżer, Kierownik]
+        Transakcje:
+            -
+                Nazwa: Wyszukanie spektaklów
+                Tabele: [Filmy, Spektakle]
+                Pola: [[], [Tytul, CzasRozpoczecia, CzasZakonczenia], []]
+            -
+                Nazwa: Wyszukiwanie filmów
+                Tabele: [Filmy, Gatunki, Filmowcy]
+                Pola: [[], '*', []]
+            -
+                Nazwa: Wyświetlenie danych o gatunkach
+                Tabele: [Gatunki]
+                Pola: [[], '*', []]
+            -
+                Nazwa: Wyświetlenie komentarzy filmu
+                Tabele: [Komentarze, Klienci]
+                Pola: [[], [IdKomentarza, IdFilmu, IdKlienta, TytulKomentarza, Zawartosc, CzasNapisania, Nazwa], []]
+            -
+                Nazwa: Wyświetlenie średniej oceny filmu
+                Tabele: [Oceny]
+                Pola: [[], [IdFilmu, Stopien], []]
+            -
+                Nazwa: Wyświetlenie danych o filmowcach
+                Tabele: [Filmowcy]
+                Pola: [[], '*', []]
+    Akcje klienta:
+        Userzy: [Klient]
+        Transakcje:
+            -
+                Nazwa: Logowanie klienta
+                Tabele: [Klienci]
+                Pola: [[], [Nazwa, Haslo], []]
+            -
+                Nazwa: Wyświetlenie danych aktualnie zalogowanego klienta
+                Tabele: [Klienci]
+                Pola: [[], '*', []]
+            -
+                Nazwa: Wyświetlenie informacji o wolnych miejscach
+                Tabele: [Miejsca, Rezerwacje, Spektakle]
+                Pola: [[], [NrMiejsca, NrRzedu, Rezerwacje.IdMiejsca, Spektakle.IdSpektaklu], []]
+            -
+                Nazwa: Dodanie nowego komentarza
+                Tabele: [Komentarze, Filmy]
+                Pola: [[Komentarze.*], [Filmy.IdFilmu], []]
+            -
+                Nazwa: Dodanie nowej oceny
+                Tabele: [Oceny, Filmy]
+                Pola: [[Oceny.*], [Filmy.IdFilmu], []]
+            -
+                Nazwa: Modyfikacja danych oceny
+                Tabele: [Oceny]
+                Pola: [[], '*', [Stopien]]
+
+    Akcje klienta lub pracownika:
+        Userzy: [Klient, Kasjer, Menedżer, Kierownik]
+        Transakcje:
+            -
+                Nazwa: Rezerwacja miejsca
+                Tabele: [Rezerwacje, Miejsca]
+                Pola: [[IdKlienta, Rezerwacje.IdMiejsca, IdSpektaklu, CzasWykonania], [NrMiejsca, Miejsca.IdMiejsca], []]
+            -
+                Nazwa: Modyfikacja danych komentarza
+                Tabele: [Komentarze]
+                Pola: [[], '*', [TytulKomentarza, Zawartosc]]
+    Akcje pracownika:
+        Userzy: [Kasjer, Menedżer, Kierownik]
+        Transakcje:
+            -
+                Nazwa: Wyświetlenie danych o salach
+                Tabele: [Sale]
+                Pola: [[], '*', []]
+            -
+                Nazwa: Wyświetlenie informacji o miejscach
+                Tabele: [Miejsca, Rezerwacje, Spektakle]
+                Pola: [[], [NrMiejsca, NrRzedu, Rezerwacje.IdMiejsca, Spektakle.IdSpektaklu], []]
+            -
+                Nazwa: Dodanie nowego filmu
+                Tabele: [Filmy]
+                Pola: ['*', [], []]
+            -
+                Nazwa: Modyfikacja danych filmu
+                Tabele: [Filmy]
+                Pola: [[], '*', '*']
+            -
+                Nazwa: Dodanie nowego gatunku
+                Tabele: [Gatunki]
+                Pola: ['*', [], []]
+            -
+                Nazwa: Usunięcie oceny
+                Tabele: [Oceny]
+                Pola: [[], [IdOceny], []]
+            -
+                Nazwa: Dodanie nowego filmowca
+                Tabele: [Filmowcy]
+                Pola: ['*', [], []]
+            -
+                Nazwa: Wyświetlenie danych klienta
+                Tabele: [Klienci]
+                Pola: [[], '*', []]
+            -
+                Nazwa: Wyświetlenie danych klientów
+                Tabele: [Klienci]
+                Pola: [[], '*', []]
+    Akcje kierownika:
+        Userzy: [Kierownik]
+        Transakcje:
+            -
+                Nazwa: Dodanie nowej sali
+                Tabele: [Sale]
+                Pola: ['*', [], []]
+            -
+                Nazwa: Modyfikacja danych sali
+                Tabele: [Sale]
+                Pola: [[], '*', '*']
+            -
+                Nazwa: Usunięcie sali
+                Tabele: [Sale]
+                Pola: [[], [NrSali], []]
+            -
+                Nazwa: Dodanie miejsca do sali
+                Tabele: [Miejsca, Sale]
+                Pola: [[Miejsca.*], [Sale.NrSali], []]
+            -
+                Nazwa: Modyfikacja danych miejsca
+                Tabele: [Miejsca]
+                Pola: [[], '*', '*']
+            -
+                Nazwa: Usunięcie miejsca
+                Tabele: [Miejsca]
+                Pola: [[], [IdMiejsca], []]
+    Akcje menedżera:
+        Userzy: [Menedżer, Kierownik]
+        Transakcje:
+            -
+                Nazwa: Dodanie nowego spektaklu
+                Tabele: [Spektakle, Sale, Filmy]
+                Pola: [[Spektakle.*], [Sale.NrSali, Filmy.IdFilmu], []]
+            -
+                Nazwa: Modyfikacja danych spektaklu
+                Tabele: [Spektakle]
+                Pola: [[], '*', '*']
+            -
+                Nazwa: Usunięcie spektaklu
+                Tabele: [Spektakle, Rezerwacje]
+                Pola: [[], [IdSpektaklu], []]
+            -
+                Nazwa: Modyfikacja danych gatunku
+                Tabele: [Gatunki]
+                Pola: [[], '*', '*']
+            -
+                Nazwa: Modyfikacja danych filmowca
+                Tabele: [Filmowcy]
+                Pola: [[], '*', '*']            
+
+      

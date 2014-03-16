@@ -1,0 +1,160 @@
+\begin{encja}{SALA}
+\semantyka Encja zawiera dane sal należących do kina.
+\begin{atrybuty}
+    NrSali & Numer sali & Liczba naturalna & OBL &
+    NrPietra & Numer piętra & Liczba naturalna & OBL &
+\end{atrybuty}
+\klucze NrSali
+\kluczGlowny{NrSali}
+\charakter{silna}
+
+\end{encja}
+\begin{encja}{MIEJSCE}
+\semantyka Encja zawiera dane miejsc należących do sal.
+\begin{atrybuty}
+    IdMiejsca & Numer identyfikacyjny miejsca & Liczba naturalna & OBL &
+    NrMiejsca & Numer miejsca & Liczba naturalna & OBL &
+    NrRzedu & Numer rzędu & Liczba naturalna & OBL &
+\end{atrybuty}
+\klucze IdMiejsca
+\kluczGlowny{IdMiejsca}
+\charakter{silna}
+
+\end{encja}
+\begin{encja}{SPEKTAKL}
+\semantyka Encja zawiera dane spektaklu odbywającego się w sali.
+\begin{atrybuty}
+    IdSpektaklu & Identyfikator spektaklu & Liczba naturalna & OBL &
+    CzasRozpoczecia & Data i czas rozpoczęcia seansu & DateTime & OBL &
+    CzasZakończenia & Data i czas zakończenia seansu & DateTime & OBL &
+\end{atrybuty}
+\klucze IdSpektaklu
+\kluczGlowny{IdSpektaklu}
+\charakter{słaba}
+
+\end{encja}
+\begin{encja}{REZERWACJA}
+\semantyka Encja zawiera dane o rezerwacji na dany spektakl i miejsce.
+\begin{atrybuty}
+    IdRezerwacji & Identyfikator rezerwacji & Liczba naturalna & OBL &
+    CzasWykoniania & Data i czas wykonania rezerwacji & DateTime & OBL &
+\end{atrybuty}
+\klucze IdRezerwacji
+\kluczGlowny{IdRezerwacji}
+\charakter{słaba}
+ 
+\end{encja}
+\begin{encja}{FILM}
+\semantyka Encja zawiera dane filmu wyświetlanego w kinie.
+\begin{atrybuty}
+    IdFilmu & Identyfikator filmu & Liczba naturalna & OBL &
+    Tytul & Tytuł filmu & Tekst & OBL &
+    Opis & Opis filmu & Tekst & OBL &
+    DataPremiery & Data premiery w kinie & Date & OPC &
+    KrajPochodzenia & Kraj pochodzenia filmu & Tekst & OPC &
+    CzasTrwania & Czas trwania filmu (w sekundach) & Liczba naturalna & OBL &
+    OgraniczenieWieku & Ograniczenie wiekowe filmu & Liczba naturalna & OBL &
+\end{atrybuty}
+\klucze IdFilmu
+\kluczGlowny{IdFilmu}
+\charakter{silna}
+
+\clearpage
+
+\end{encja}
+\begin{encja}{GATUNEK}
+\semantyka Encja zawiera dane gatunku.
+\begin{atrybuty}
+    IdGatunku & Identyfikator gatunku & Liczba naturalna & OBL &
+    Nazwa & Nazwa gatunku & Tekst & OBL &
+\end{atrybuty}
+\klucze IdGatunku, Nazwa
+\kluczGlowny{IdGatunku}
+\charakter{słaba}
+ 
+\end{encja}
+\begin{encja}{KOMENTARZ}
+\semantyka Encja zawiera dane komentarza dodanego do filmu.
+\begin{atrybuty}
+    IdKomentarza & Identyfikator komentarza & Liczba naturalna & OBL &
+    Tytul & Tytuł komentarza & Tekst & OPC &
+    Zawartosc & Treść komentarza & Tekst & OBL &
+    CzasNapisania & Data i czas napisania komentarza & DateTime & OBL &
+\end{atrybuty}
+\klucze IdKomentarza
+\kluczGlowny{IdKomentarza}
+\charakter{słaba}
+ 
+\end{encja}
+\begin{encja}{OCENA}
+\semantyka Encja zawiera dane oceny dodanej do filmu.
+\begin{atrybuty}
+    IdOceny & Identyfikator oceny & Liczba naturalna & OBL &
+    Stopien & Stopień oceny & Liczba naturalna & OBL &
+    CzasDodania & Data i czas dodania oceny & DateTime & OBL &
+\end{atrybuty}
+\klucze IdOceny
+\kluczGlowny{IdOceny}
+\charakter{słaba}
+
+\end{encja}
+\begin{encja}{KLIENT}
+\semantyka Encja zawiera informację o kliencie kina.
+\begin{atrybuty}
+	IdKlienta & Identyfikator klienta & Liczba naturalna & OBL &
+    Nazwa & Nazwa użytkownika (jego ,,Login'') & Tekst & OBL &
+    Haslo & Hasło użytkownika & Tekst & OBL &
+	Email & Adres poczty elektronicznej & Tekst & OBL &
+	Imie & Imię klienta & Tekst & OBL &
+	Nazwisko & Nazwisko klienta kina & Tekst & OBL &
+	DataUrodzenia & Data urodzenia klienta & Date & OBL &
+\end{atrybuty}
+\klucze IdKlienta, Nazwa, Email
+\kluczGlowny{IdKlienta}
+\charakter{silna}
+
+\end{encja}
+\begin{encja}{FILMOWIEC}
+\semantyka Encja zawiera informację o filmowcu, osobie, która uczestniczyła przy produkcji filmu.
+\begin{atrybuty}
+	IdFilmowca & Identyfikator filmowca & Liczba naturalna & OBL &
+    Imie & Imię filmowca & Tekst & OBL &
+	Nazwisko & Nazwisko filmowca & Tekst & OBL &
+	DataUrodzenia & Data urodzenia filmowca & Date & OPC &
+    Narodowsc & Narodowość filmowca & Tekst & OPC &
+\end{atrybuty}
+\klucze IdFilmowca
+\kluczGlowny{IdFilmowca}
+\charakter{słaba}
+\end{encja}
+
+\begin{encja}{KASJER}
+\semantyka Encja zawiera informację o kasjerze.
+\begin{atrybuty}
+	IdKasjera & Identyfikator kasjera & Liczba naturalna & OBL &
+    Nazwa & Nazwa kasjera (jego ,,Login'') & Tekst & OBL &
+    Haslo & Hasło kasjera & Tekst & OBL &
+	Email & Adres poczty elektronicznej & Tekst & OBL &
+	Imie & Imię kasjera & Tekst & OBL &
+	Nazwisko & Nazwisko kasjera & Tekst & OBL &
+\end{atrybuty}
+\klucze IdKasjera, Nazwa, Email
+\kluczGlowny{IdKasjera}
+\charakter{silna}
+\end{encja}
+
+\begin{zwiazki}
+    \zwiazek Uczestniczy(KLIENT(0,1),REZERWACJA(0,N))
+    \zwiazek Dotyczy(SPEKTAKL(1,1),REZERWACJA(0,N))
+    \zwiazek Jest(MIEJSCE(1,1),REZERWACJA(0,N))
+    \zwiazek Zawiera(SPEKTAKL(0,N),FILM(1,1))
+    \zwiazek Ma(FILM(0,N),GATUNEK(0,N))
+    \zwiazek Zatrudniony(FILMOWIEC(0,N),FILM(0,N); Rola)
+    \zwiazek Oddal(KLIENT(1,1),OCENA(0,N))
+    \zwiazek Dodal(KLIENT(1,1),KOMENTARZ(0,N))
+	\zwiazek PosiadaO(FILM(1,1),OCENA(0,N))
+	\zwiazek PosiadaK(FILM(1,1),KOMENTARZ(0,N))
+	\zwiazek PosiadaM(SALA(1,1),MIEJSCE(0,N))
+	\zwiazek OdbywaSie(SPEKTAKL(0,N),SALA(1,1))
+	\zwiazek Dokonal(KASJER(0,1),REZERWACJA(0,N))
+\end{zwiazki}
