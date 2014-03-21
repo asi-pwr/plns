@@ -3,6 +3,13 @@ from django.utils.translation import ugettext as _
 from mptt.models import MPTTModel, TreeForeignKey
 from plns.users.models import User
 
+class PaymentManager(models.Manager):
+    def data_sort(self, date_first, date_second):
+        return self.filter(timestamp__range=(date_first, date_second))
+
+    def amount_sort(self, amount_first, amount_second):
+        return self.filter(amount__range=(amount_first, amount_second))
+
 class Payment(models.Model):
     name = models.TextField(_('Name'))
     timestamp = models.DateTimeField(_('Date and Time'))
