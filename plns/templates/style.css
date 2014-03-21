@@ -1,11 +1,13 @@
 body {
     background-image: url(img/bg.png);
     background-repeat: repeat-x;
+	background-size: 100% auto;
 }
 
 .wrapper {
     background-image: url(img/bg2.png);
     background-repeat: repeat-x;
+
     max-width: 900px;
     margin: 0 auto;
     position: relative;
