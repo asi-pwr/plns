@@ -1,0 +1,52 @@
+\begin{relacje}
+    \relacja{Klienci}(\pk{IdKlienta}, NazwaKlienta, Haslo, Email, Imie, Nazwisko, DataUrodzenia)
+    \relacja{Rezerwacje}(\pk{IdRezerwacji}, \fk{IdKlienta}, \fk{IdMiejsca}, \fk{IdSpektaklu}, CzasWykonania)
+    \relacja{Spektakle}(\pk{IdSpektaklu}, \fk{IdFilmu}, \fk{NrSali}, CzasRozpoczecia, CzasZakonczenia)
+    \relacja{Miejsca}(\pk{IdMiejsca}, \fk{NrSali}, NrMiejsca, NrRzedu)
+    \relacja{Filmy}(\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \relacja{Gatunki}(\pk{IdGatunku}, Nazwa)
+    \relacja{GatunkiFilmow}(\fk{IdFilmu}, \fk{IdGatunku})
+    \relacja{Filmowcy}(\pk{IdFilmowca}, ImieFilmowca, NazwiskoFilmowca, DataUrodzeniaFilmowca, Narodowosc)
+    \relacja{Role}(\fk{IdFilmowca}, \fk{IdFilmu}, NazwaRoli)
+    \relacja{Oceny}(\pk{IdOceny}, \fk{IdFilmu}, \fk{IdKlienta}, Stopien, CzasDodania)
+    \relacja{Komentarze}(\pk{IdKomentarza}, \fk{IdFilmu}, \fk{IdKlienta}, TytulKomentarza, Zawartosc, CzasNapisania)
+    \relacja{Sale}(\pk{NrSali}, NrPietra)
+\end{relacje}
+\begin{atrybuty}
+NrSali & Int+ & Sale\newline Miejsca\newline Spektakle \\\hline
+NrPietra & Int+ & Sale \\\hline
+IdMiejsca & Int+ & Miejsca\newline Rezerwacje \\\hline
+NrMiejsca & Int+ & Miejsca \\\hline
+NrRzedu & Int+ & Miejsca \\\hline
+IdSpektaklu & Int+ & Spektakle\newline Rezerwacje \\\hline
+CzasRozpoczecia & DateTime & Spektakle \\\hline
+CzasZakonczenia & DateTime & Spektakle \\\hline
+IdRezerwacji & Int+ & Rezerwacje \\\hline
+CzasWykonania & DateTime & Rezerwacje \\\hline
+IdFilmu & Int+ & Spektakle\newline Filmy\newline GatunkiFilmow\newline Komentarze\newline Oceny\newline Role \\\hline
+Tytul & String & Filmy \\\hline
+Opis & String & Filmy \\\hline
+DataPremiery & Date & Filmy \\\hline
+KrajPochodzenia & String & Filmy \\\hline
+CzasTrwania & Int+ & Filmy \\\hline
+OgraniczenieWieku & Int+ & Filmy \\\hline
+IdGatunku & Int+ & Gatunki\newline GatunkiFilmow \\\hline
+Nazwa & String & Gatunki\newline Klienci \\\hline
+IdKomentarza & Int+ & Komentarze \\\hline
+\end{atrybuty}
+\begin{atrybuty}
+Zawartosc & String & Komentarze \\\hline
+CzasNapisania & DateTime & Komentarze \\\hline
+IdOceny & Int+ & Oceny \\\hline
+Stopien & Int+ & Oceny \\\hline
+CzasDodania & DateTime & Oceny \\\hline
+IdKlienta & Int+ & Rezerwacje\newline Komentarze\newline Oceny\newline Klienci \\\hline
+Haslo & String & Klienci \\\hline
+Email & String & Klienci \\\hline
+Imie & String & Klienci\newline Filmowcy \\\hline
+Nazwisko & String & Klienci\newline Filmowcy \\\hline
+DataUrodzenia & Date & Klienci\newline Filmowcy \\\hline
+IdFilmowca & Int+ & Filmowcy\newline Role \\\hline
+Narodowosc & String & Filmowcy \\\hline
+NazwaRoli & String & Role \\\hline
+\end{atrybuty}

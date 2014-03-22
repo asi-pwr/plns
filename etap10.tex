@@ -1,0 +1,106 @@
+
+\zwiazek
+\encje
+    \encja[KLIENT](\pk{IdKlienta}, NazwaKlienta, Haslo, Email, Imie, Nazwisko, DataUrodzenia)
+    \encja[REZERWACJA](\pk{IdRezerwacji}, CzasWykonania)
+\relacje
+    \relacja{Klienci}(\pk{IdKlienta}, NazwaKlienta, Haslo, Email, Imie, Nazwisko, DataUrodzenia)
+    \relacja{Rezerwacje}(\pk{IdRezerwacji}, \fk{IdKlienta}, CzasWykonania)
+
+\zwiazek
+\encje
+    \encja[SPEKTAKL](\pk{IdSpektaklu}, CzasRozpoczecia, CzasZakonczenia)
+    \encja[REZERWACJA](\pk{IdRezerwacji}, CzasWykonania)
+\relacje
+    \relacja{Spektakle}(\pk{IdSpektaklu}, CzasRozpoczecia, CzasZakonczenia)
+    \relacja{Rezerwacje}(\pk{IdRezerwacji}, \fk{IdKlienta}, \fk{IdSpektaklu}, CzasWykonania)
+
+\zwiazek
+\encje
+    \encja[MIEJSCE](\pk{IdMiejsca}, NrMiejsca, NrRzedu)
+    \encja[REZERWACJA](\pk{IdRezerwacji}, CzasWykonania)
+\relacje
+    \relacja{Miejsca}(\pk{IdMiejsca}, NrMiejsca, NrRzedu)
+    \relacja{Rezerwacje}(\pk{IdRezerwacji}, \fk{IdKlienta}, \fk{IdMiejsca}, \fk{IdSpektaklu}, CzasWykonania)
+
+\zwiazek
+\encje
+    \encja[FILM](\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \encja[SPEKTAKL](\pk{IdSpektaklu}, CzasRozpoczecia, CzasZakonczenia)
+\relacje
+    \relacja{Filmy}(\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \relacja{Spektakle}(\pk{IdSpektaklu}, \fk{IdFilmu}, CzasRozpoczecia, CzasZakonczenia)
+
+\zwiazek
+\encje
+    \encja[FILM](\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \encja[GATUNEK](\pk{IdGatunku}, Nazwa)
+\relacje
+    \relacja{Filmy}(\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \relacja{Gatunki}(\pk{IdGatunku}, Nazwa)
+    \relacja{GatunkiFilmow}(\fk{IdFilmu}, \fk{IdGatunku})
+
+\zwiazek
+\encje
+    \encja[FILMOWIEC](\pk{IdFilmowca}, ImieFilmowca, NazwiskoFilmowca, DataUrodzeniaFilmowca, Narodowosc)
+    \encja[FILM](\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+\relacje
+    \relacja{Filmowcy}(\pk{IdFilmowca}, ImieFilmowca, NazwiskoFilmowca, DataUrodzeniaFilmowca, Narodowosc)
+    \relacja{Filmy}(\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \relacja{Role}(\fk{IdFilmowca}, \fk{IdFilmu}, NazwaRoli)
+
+\zwiazek
+\encje
+    \encja[KLIENT](\pk{IdKlienta}, NazwaKlienta, Haslo, Email, Imie, Nazwisko, DataUrodzenia)
+    \encja[OCENA](\pk{IdOceny}, Stopien, CzasDodania)
+\relacje
+    \relacja{Klienci}(\pk{IdKlienta}, NazwaKlienta, Haslo, Email, Imie, Nazwisko, DataUrodzenia)
+    \relacja{Oceny}(\pk{IdOceny}, \fk{IdKlienta}, Stopien, CzasDodania)
+
+\zwiazek
+\encje
+    \encja[KLIENT](\pk{IdKlienta}, NazwaKlienta, Haslo, Email, Imie, Nazwisko, DataUrodzenia)
+    \encja[KOMENTARZ](\pk{IdKomentarza}, TytulKomentarza, Zawartosc, CzasNapisania)
+\relacje
+    \relacja{Klienci}(\pk{IdKlienta}, NazwaKlienta, Haslo, Email, Imie, Nazwisko, DataUrodzenia)
+    \relacja{Komentarze}(\pk{IdKomentarza}, \fk{IdKlienta}, TytulKomentarza, Zawartosc, CzasNapisania)
+
+\zwiazek
+\encje
+    \encja[FILM](\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \encja[OCENA](\pk{IdOceny}, Stopien, CzasDodania)
+\relacje
+    \relacja{Filmy}(\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \relacja{Oceny}(\pk{IdOceny}, \fk{IdFilmu}, \fk{IdKlienta}, Stopien, CzasDodania)
+
+\zwiazek
+\encje
+    \encja[FILM](\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \encja[KOMENTARZ](\pk{IdKomentarza}, TytulKomentarza, Zawartosc, CzasNapisania)
+\relacje
+    \relacja{Filmy}(\pk{IdFilmu}, Tytul, Opis, DataPremiery, KrajPochodzenia, CzasTrwania, OgraniczenieWieku)
+    \relacja{Komentarze}(\pk{IdKomentarza}, \fk{IdFilmu}, \fk{IdKlienta}, TytulKomentarza, Zawartosc, CzasNapisania)
+
+\zwiazek
+\encje
+    \encja[SALA](\pk{NrSali}, NrPietra)
+    \encja[MIEJSCE](\pk{IdMiejsca}, NrMiejsca, NrRzedu)
+\relacje
+    \relacja{Sale}(\pk{NrSali}, NrPietra)
+    \relacja{Miejsca}(\pk{IdMiejsca}, \fk{NrSali}, NrMiejsca, NrRzedu)
+
+\zwiazek
+\encje
+    \encja[SALA](\pk{NrSali}, NrPietra)
+    \encja[SPEKTAKL](\pk{IdSpektaklu}, CzasRozpoczecia, CzasZakonczenia)
+\relacje
+    \relacja{Sale}(\pk{NrSali}, NrPietra)
+    \relacja{Spektakle}(\pk{IdSpektaklu}, \fk{IdFilmu}, \fk{NrSali}, CzasRozpoczecia, CzasZakonczenia)
+	
+\zwiazek
+\encje
+	\encja[KASJER](\pk{IdKasjera}, Nazwa, Haslo, Email, Imie, Nazwisko)
+    \encja[REZERWACJA](\pk{IdRezerwacji}, CzasWykonania)
+\relacje
+    \relacja{Kasjerzy}(\pk{IdKlienta}, NazwaKlienta, Haslo, Email, Imie, Nazwisko, DataUrodzenia)
+    \relacja{Rezerwacje}(\pk{IdRezerwacji}, \fk{IdKlienta}, \fk{IdMiejsca}, \fk{IdSpektaklu}, \fk{IdKasjera}, CzasWykonania)

@@ -1,0 +1,341 @@
+%   TRANSAKCJE SAL
+
+\transakcja{Dodanie nowej sali}
+\opis Zadaniem transakcji jest dodanie nowej sali do bazy danych. Dodanie może być wykonane wyłącznie przez kierownika kina.
+\uwarunkowania Kierownik kina wpisuje komplet informacji koniecznych do dodania nowej sali. Jeżeli sala o takim samym numerze znajduje się już w bazie, użytkownik dostaje komunikat ,,Sala o podanym numerze znajduje się już w bazie''. Wymagane jest podanie numeru sali i numeru piętra, na którym się ona znajduje. Jeżeli użytkownik nie wpisze wymaganych danych, lub nie spełniają one ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane sali''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego dodania sali.
+W przypadku poprawnego dodania sali do bazy użytkownik otrzymuje komunikat ,,Nowa sala została poprawnie dodana do bazy!''
+\begin{tabela}
+Użytkownik & Dane sali & Komunikat \\
+Baza danych & Dane sal & Dane sal \\
+\end{tabela}
+
+\transakcja{Modyfikacja danych sali}
+\opis Zadaniem transakcji jest wyszukanie danych o wybranej sali i edycja tych danych. Edycję może wykonać wyłącznie kierownik kina.
+\uwarunkowania Kierownik z listy wszystkich sal wybiera tą, z żądanym przez niego numerem. Jeżeli w wyniku edycji sala o takim samym numerze znajduje się już w bazie, użytkownik dostaje komunikat ,,Sala o podanym numerze znajduje się już w bazie''. Jeżeli użytkownik nie wpisze wymaganych danych (numeru sali i numeru piętra), lub nie spełniają one ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane sali!''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego zmodyfikowania danych sali.
+W przypadku poprawnej edycji danych sali, użytkownik otrzymuje komunikat ,,Dane sali zostały zmodyfikowane!''
+\begin{tabela}
+Użytkownik & Numer sali\newline Nowe dane sali & Komunikat \\
+Baza danych & Dane sal & Dane sal \\
+\end{tabela}
+
+\transakcja{Usunięcie sali}
+\opis Zadaniem transakcji jest wyszukanie danych sali i jej usunięcie. Operację tą może wykonać jedynie kierownik.
+\uwarunkowania Kierownik z listy sal wybiera tą, z żądanym przez niego numerem. Po dokonanym wyborze wyświetlane są dane sali, dzięki, którym kierownik upewnia się, czy wskazał na dobrą salę. Następnie usuwa salę. System wyświetla komunikat ,,Czy na pewno chcesz usunąć salę?''. W przypadku potwierdzenia komunikatu z systemu usuwana jest dana sala.
+\begin{tabela}
+Użytkownik & Numer sali & Komunikat \\
+Baza danych & Dane sal & Dane sal \\
+\end{tabela}
+
+\transakcja{Wyświetlenie danych o salach}
+\opis Zadaniem transakcji jest wyświetlenie danych o salach. Wyświetlenie  może wykonać dowolny pracownik.
+\uwarunkowania Pracownik wybiera opcję ,,Wyświetl listę sal''. Następnie wyświetlane jest nowe okno z danymi sal.
+\begin{tabela}
+Użytkownik & & Okno z danymi \\
+Baza danych & Dane sal & Dane sal \\
+\end{tabela}
+
+%    Miejsca w salach
+
+\transakcja{Dodanie miejsca do sali}
+\opis Zadaniem transakcji jest dodanie nowego miejsca do sali w bazie danych. Dodanie może być wykonane wyłącznie przez kierownika kina.
+\uwarunkowania Kierownik kina wpisuje komplet informacji koniecznych do dodania nowego miejsca do sali. Jeżeli miejsce o takim samym numerze znajduje się już w sali, użytkownik dostaje komunikat ,,Miejsce o podanym numerze znajduje się już w sali''. Wymagane jest podanie numeru miejsca i numeru rzędu w którym się ono znajduje. Jeżeli użytkownik nie wpisze wymaganych danych, lub nie spełniają one ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane miejsca''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego dodania miejsca.
+W przypadku poprawnego dodania miejsca użytkownik otrzymuje komunikat ,,Nowe miejsce zostało poprawnie dodane do sali!''
+\begin{tabela}
+Użytkownik & Numer sali\newline Dane miejsca & Komunikat \\
+Baza danych & Dane miejsc & Dane miejsc \\
+\end{tabela}
+
+\transakcja{Modyfikacja danych miejsca}
+\opis Zadaniem transakcji jest wyszukanie danych o wybranym miejscu w sali i edycja tych danych. Edycję może wykonać wyłącznie kierownik kina.
+\uwarunkowania Kierownik z listy wszystkich sal wybiera tą, z żądanym przez niego numerem. W sali tej, z listy miejsc wybiera to, które chce zmienć. Jeżeli użytkownik zmieni numer miejsca na istniejący już w sali, użytkownik dostaje komunikat ,,Miejsce o podanym numerze znajduje się już w sali''. Jeżeli użytkownik nie wpisze wymaganych danych, lub nie spełniają one ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane miejsca!''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego zmodyfikowania danych miejsca.
+W przypadku poprawnej edycji danych miejsca, użytkownik otrzymuje komunikat ,,Dane miejsca zostały zmodyfikowane!''
+\begin{tabela}
+Użytkownik & Numer sali\newline Numer miejsca\newline Nowe dane miejsca & Komunikat \\
+Baza danych & Dane miejsc & Dane miejsc \\
+\end{tabela}
+
+\transakcja{Usunięcie miejsca}
+\opis Zadaniem transakcji jest wyszukanie danych miejsca w sali i usunięcie go. Operację tą może wykonać jedynie kierownik.
+\uwarunkowania Kierownik z listy sal wybiera tą, z żądanym przez niego numerem. Następnie z listy miejsc w sali wybiera miejsce do usunięcia. Po dokonanym wyborze wyświetlane są dane miejsca, dzięki którym kierownik upewnia się, czy wskazał dobre miejsce. Następnie usuwa miejsce. System wyświetla komunikat ,,Czy na pewno chcesz usunąć miejsce?''. W przypadku potwierdzenia komunikatu z systemu usuwane jest dane miejsce.
+\begin{tabela}
+Użytkownik & Numer sali\newline Numer miejsca & Komunikat \\
+Baza danych & Dane miejsc & Dane miejsc \\
+\end{tabela}
+
+\transakcja{Wyświetlenie informacji o miejscach}
+\opis Zadaniem transakcji jest wyświetlenie danych o miejscach w sali na danym spektaklu. Wyświetlenia może wykonać dowolny pracownik.
+\uwarunkowania Pracownik wybiera opcję ,,Wyświetl listę miejsc'', a następnie wpisuje spektakl, który go interesuje.
+Jeżeli spektakl nie istnieje, wyświetlony zostaje komunikat ,,Spektakl nie istnieje''.
+Następnie wyświetlane jest nowe okno z danymi miejsc, wraz z klientami do nich przypisanymi (jeśli tacy są).
+\begin{tabela}
+Użytkownik & Spektakl & Okno z danymi \\
+Baza danych & Dane rezerwacji\newline Dane miejsc\newline Dane klientów\newline Dane spektakli & ane rezerwacji\newline Dane miejsc\newline Dane klientów \\
+\end{tabela}
+
+\transakcja{Wyświetlenie informacji o wolnych miejscach}
+\opis Zadaniem transakcji jest wyświetlenie danych o wolnych miejscach w sali. Wyświetlenia może wykonać dowolny klient.
+\uwarunkowania Klient wybiera opcję ,,Wyświetl listę miejsc'', a następnie wybiera spektakl, który go interesuje.
+Jeżeli spektakl nie istnieje, wyświetlony zostaje komunikat ,,Spektakl nie istnieje''.
+Następnie wyświetlane jest nowe okno z danymi wolnych miejsc.
+\begin{tabela}
+Użytkownik & Spektakl & Okno z danymi \\
+Baza danych & Dane rezerwacji\newline Dane miejsc\newline Dane spektakli & Dane miejsc \\
+\end{tabela}
+
+\transakcja{Rezerwacja miejsca}
+\opis Zadaniem transakcji jest rezerwacja miejsca na spektaklu. Rezerwacji może dokonać klient lub pracownik.
+\uwarunkowania Użytkownik wybiera opcję ,,Zarezerwuj miejsce'', a następnie wybiera spektakl i miejsce, które go interesują.
+Jeżeli spektakl już się zaczął, wyświetlony zostaje komunikat ,,Rezerwacje można dokonać tylko przed rozpoczęciem spektaklu''.
+Jeżeli miejsce nie istnieje, wyświetlony zostaje komunikat ,,Miejsce nie istnieje''.
+Jeżeli spektakl nie istnieje, wyświetlony zostaje komunikat ,,Spektakl nie istnieje''.
+Jeżeli miejsce jest już zarezerwowane, wyświetlony zostaje komunikat ,,Miejsce jest już zarezerwowane.''.
+Jeżeli miejsce jest wolne, dokonuje się rejestracja i wyświetlony zostaje komunikat ,,Rezerwacja dokonana.''.
+\begin{tabela}
+Użytkownik & Spektakl\newline Numer miejsca & Komunikat \\
+Baza danych & Dane klienta\newline Dane miejsc\newline Dane spektakli\newline Dane rezerwacji & Dane klienta\newline Dane miejsc\newline Dane spektakli\newline Dane rezerwacji \\
+\end{tabela}
+
+%   TRANSAKCJE SPEKTAKLÓW
+
+\transakcja{Dodanie nowego spektaklu}
+\opis Zadaniem transakcji jest dodanie nowego spektaklu do bazy danych. Dodanie może być wykonane przez menedżera lub kierownika kina.
+\uwarunkowania Użytkownik wpisuje komplet informacji koniecznych do dodania nowego spektaklu. Z listy wybiera, w której sali ma się on odbyć i jaki film ma być wyświetlany. Jeżeli w podanej sali, na podany termin jest już przydzielony inny spektakl, użytkownik dostaje komunikat ,,W podanej sali odbywa się w tym czasie inny spektakl!''. Gdy wpisane dane nie są zgodne z ograniczeniami dziedzinowymi użytkownik otrzymuje komunikat ,,Proszę podać poprawne dane spektaklu''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego dodania spektaklu. Nowo dodany spektakl otrzymuje kolejny, automatycznie nadany unikalny numer identyfikacyjny.
+W przypadku poprawnego dodania spektaklu do bazy, użytkownik otrzymuje komunikat ,,Nowy spektakl został poprawnie dodany do bazy!''
+\begin{tabela}
+Użytkownik & Dane spektaklu & Komunikat \\
+Baza danych & Dane spektaklów & Dane spektaklów \\
+\end{tabela}
+
+\transakcja{Modyfikacja danych spektaklu}
+\opis Zadaniem transakcji jest wyszukanie danych o wybranym spektaklu i edycja tych danych. Edycję może wykonać wyłącznie menedżer lub kierownik kina.
+\uwarunkowania Użytkownik z listy wszystkich spektaklów wybiera ten z żądanym przez niego terminem i salą. W nowym oknie wyświetlane są mu pełne dane o spektaklu z możliwością ich edycji. Jeżeli w podanej sali, na podany termin jest już przydzielony inny spektakl, użytkownik dostaje komunikat ,,W podanej sali odbywa się w tym czasie inny spektakl!''. Gdy wpisane dane nie są zgodne z ograniczeniami dziedzinowymi użytkownik otrzymuje komunikat ,,Proszę podać poprawne dane spektaklu''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego zmodyfikowania danych spektaklu. 
+W przypadku poprawnej edycji danych spektaklu do bazy, użytkownik otrzymuje komunikat ,,Dane spektaklu zostały zmodyfikowane!''
+\begin{tabela}
+Użytkownik & Numer identyfikacyjny spektaklu\newline Nowe dane spektaklu & Komunikat \\
+Baza danych & Dane spektaklów & Dane spektaklów \\
+\end{tabela}
+
+\transakcja{Usunięcie spektaklu}
+\opis Zadaniem transakcji jest wyszukanie danych spektaklu i jego usunięcie. Operację tą może wykonać kierownik lub menedżer.
+\uwarunkowania Użytkownik z listy spektaklów wybiera ten, który chce usunąć. Po dokonanym wyborze wyświetlane są dane spektaklu i lista ewentualnych rezerwacji przydzielonych na niego. Następnie usuwa salę. Gdy na spektakl dokonano już co najmniej jedną rezerwację, transakcja jest zakańczana komunikatem ,,Nie można usunąć spektaklu, na który dokonano rezerwacji!''. Gdy na spektakl nie ma przypisanych żadnych rezerwacji, system wyświetla komunikat ,,Czy na pewno chcesz usunąć spektakl?''. W przypadku potwierdzenia komunikatu z systemu usuwana jest dany spektakl.
+\begin{tabela}
+Użytkownik & Numer identyfikacyjny spektaklu & Komunikat \\
+Baza danych & Dane spektaklów\newline Dane rezerwacji & Dane spektaklów\newline Dane rezerwacji \\
+\end{tabela}
+
+\transakcja{Wyszukanie spektaklów}
+\opis Zadaniem transakcji jest wyświetlenie listy spektaklów na podstawie wpisanych kryteriów. Dowolny użytkownik może wyszukać spektakle na podstawie podanego zakresu dat i opcjonalnego tytułu filmu.
+\uwarunkowania Użytkownik podaje zakres dat, w których może rozpocząć się spektakl i opcjonalną nazwę filmu, który go interesuje. Gdy na podstawie wpisanych danych nie zostanie znaleziony żaden spektakl, zostanie mu wyświetlony komunikat ,,Żaden spekakl nie spełnia podanych kryteriów''. W przeciwnym razie zostanie wyświetlone nowe okno z listą spekaklów, które spełniają podane wymagania.
+\begin{tabela}
+Użytkownik & Data minimalna, Data maksymalna, nazwa filmu & Okno z listą spektaklów \\
+Baza danych & Dane spektaklów\newline Dane filmów & Dane spektaklów\newline Dane filmów \\
+\end{tabela}
+
+%   TRANSAKCJE FILMÓW
+
+\transakcja{Dodanie nowego filmu}
+\opis Zadaniem transakcji jest dodanie nowego filmu do bazy danych. Dodanie może być wykonane przez dowolnego pracownika kina.
+\uwarunkowania Pracownik wpisuje komplet informacji koniecznych do dodania nowego filmu. Z listy wielokrotnego wyboru wybiera dowolne gatunki, do których może zakwalifikować film. Wymagane jest podanie wszystkich parametrów filmu. Jeżeli użytkownik nie wpisze wymaganych danych, lub nie spełniają one ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane filmu''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego dodania filmu.
+Gdy wpisane dane są poprawne, nowo dodany film otrzymuje kolejny, unikalny numer identyfikacyjny nadany przez SZBD.
+W przypadku poprawnego dodania filmu do bazy użytkownik otrzymuje komunikat ,,Nowy film został poprawnie dodany do bazy!''
+\begin{tabela}
+Użytkownik & Dane filmu\newline Nazwy gatunków & Komunikat \\
+Baza danych & Dane filmów\newline Dane gatunków & Dane filmów\newline Dane gatunków \\
+\end{tabela}
+
+\transakcja{Modyfikacja danych filmu}
+\opis  Zadaniem transakcji jest wyszukanie danych o wybranym filmie i edycja tych danych. Edycję może wykonać dowolny pracownik kina.
+\uwarunkowania Pracownik edytuje dane istniejącego filmu. Może zmienić gatunki, do których jest przydzielony film. Wymagane jest podanie wszystkich parametrów filmu. Jeżeli użytkownik nie wpisze wymaganych danych, lub nie spełniają one ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane filmu''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego dodania filmu.
+W przypadku poprawnego zmodyfikowania danych filmu użytkownik otrzymuje komunikat ,,Dane filmu został zmodyfikowane!''
+\begin{tabela}
+Użytkownik & Numer identyfikacyjny filmu\newline Nowe dane filmu\newline Nowe nazwy gatunków & Komunikat \\
+Baza danych & Dane filmów\newline Dane gatunków & Dane filmów\newline Dane gatunków \\
+\end{tabela}
+
+\transakcja{Wyszukiwanie filmów}
+\opis Zadaniem transakcji jest wyszukanie filmów. Dowolny użytkownik może wyszukać filmy na podstawie ich tytułu, kraju pochodzenia, gatunków lub filmowców, którzy brali udział w jego stworzeniu.
+\uwarunkowania Użytkownik wpisuje tytuł filmu, kraj pochodzenia. Może zaznaczyć gatunki, z których filmy go interesują jak również filmowców, którzy brali udział w tworzeniu. Użytkownik powinien podać przynajmniej jedno kryterium wyszukiwania. Gdy na podstawie wpisanych kryteriów nie zostanie znaleziony żaden film, zostanie mu wyświetlony komunikat ,,Żaden film nie spełnia podanych kryteriów''. W przeciwnym razie zostanie wyświetlone nowe okno z listą filmów, które spełniają podane wymagania.
+\begin{tabela}
+Użytkownik & Dane filmu\newline Nazwy gatunków\newline Nazwy filmowców & Okno z danymi \\
+Baza danych & Dane filmów\newline Dane gatunków\newline Dane filmowców &  Dane filmów\newline Dane gatunków\newline Dane filmowców \\
+\end{tabela}
+
+
+%   TRANSAKCJE GATUNKÓW
+
+\transakcja{Dodanie nowego gatunku}
+\opis Zadaniem transakcji jest dodanie nowego gatunku do bazy danych. Dodanie może być wykonane przez dowolnego pracownika.
+\uwarunkowania Pracownik wpisuje komplet informacji koniecznych do dodania nowego gatunku. Jeżeli gatunek o takiej samej nazwie znajduje się już w bazie, użytkownik dostaje komunikat ,,Gatunek o podanej nazwie znajduje się już w bazie''. Jeżeli wpisane dane nie spełniają ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane gatunku''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego dodania gatunku.
+Gdy wpisane dane są poprawne, nowo dodany gatunek otrzymuje kolejny, unikalny numer identyfikacyjny nadany przez SZBD.
+W przypadku poprawnego dodania gatunku do bazy, użytkownik otrzymuje komunikat ,,Nowy gatunek został poprawnie dodany do bazy!''
+\begin{tabela}
+Użytkownik & Dane gatunku & Komunikat \\
+Baza danych & Dane gatunków & Dane gatunków \\
+\end{tabela}
+
+\transakcja{Modyfikacja danych gatunku}
+\opis Zadaniem transakcji jest wyszukanie danych o wybranym gatunku i edycja tych danych. Edycję może wykonać wyłącznie kierownika kina lub menedżer.
+\uwarunkowania Pracownik z listy wszystkich gatunków wybiera ten, z żądaną przez niego nazwą. Jeżeli w wyniku edycji gatunek o takiej samej nazwie znajduje się już w bazie, użytkownik dostaje komunikat ,,Gatunek o podanej nazwie znajduje się już w bazie''. Jeżeli wpisane dane nie spełniają  ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane gatunku!''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego zmodyfikowania danych gatunku.
+W przypadku poprawnej edycji danych gatunku, użytkownik otrzymuje komunikat ,,Dane gatunku zostały zmodyfikowane!''
+\begin{tabela}
+Użytkownik & Nazwa gatunku\newline Nowe dane gatunku & Komunikat \\
+Baza danych & Dane gatunków & Dane gatunków \\
+\end{tabela}
+
+\transakcja{Wyświetlenie danych o gatunkach}
+\opis Zadaniem transakcji jest wyświetlenie danych o gatunkach. Wyświetlenie może wykonać dowolny użytkownik.
+\uwarunkowania Użytkownik wybiera opcję ,,Wyświetl listę gatunków''. Następnie wyświetlane jest nowe okno z danymi gatunków.
+\begin{tabela}
+Użytkownik & & Okno z danymi \\
+Baza danych & Dane gatunków & Dane gatunków \\
+\end{tabela}
+
+
+%   TRANSAKCJE KOMENTARZY
+
+\transakcja{Dodanie nowego komentarza}
+\opis Zadaniem transakcji jest dodanie nowego komentarza do bazy danych. Dodanie może być wykonane jedynie przez klienta.
+\uwarunkowania Klient wpisuje komplet informacji koniecznych do dodania nowego komentarza. Jeżeli wpisane dane nie spełniają ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane komentarza''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego dodania wpisu.
+Gdy wpisane dane są poprawne, nowo dodany komentarz otrzymuje kolejny, unikalny numer identyfikacyjny nadany przez SZBD.
+W przypadku poprawnego dodania komentarza do bazy, użytkownik otrzymuje komunikat ,,Nowy komentarz został poprawnie dodany do bazy!''
+\begin{tabela}
+Użytkownik & Nazwa filmu\newline Dane komentarza & Komunikat \\
+Baza danych & Dane filmów\newline Dane komentarzy\newline Dane klientów & Dane filmów\newline Dane komentarzy\newline Dane klientów \\
+\end{tabela}
+
+\transakcja{Modyfikacja danych komentarza}
+\opis Zadaniem transakcji jest wyszukanie danych o wybranym komentarzu i edycja tych danych. Edycję może wykonać pracownik kina lub klient.
+\uwarunkowania Użytkownik wybiera komentarz, który ma zostać zmodyfikowany i wpisuje jego nowe dane. Jeżeli od czasu napisania komentarza minęły ponad dwa dni i operację wykonuje klient to wyświetlany jest komunikat ,,Edycja komentarzy możliwa jest do dwóch dni od daty napisania''. Jeżeli to nie zalogowany klient był autorem komentarza to wyświetla się komunikat ,,Edytować komentarz może jedynie jego autor''. W obu przypadkach transakcja jest przerywana. Jeżeli wpisane dane nie spełniają ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane komentarza!''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego zmodyfikowania danych komentarza.
+W przypadku poprawnej edycji danych komentarza, użytkownik otrzymuje komunikat ,,Komentarz został zmodyfikowany!''
+\begin{tabela}
+Użytkownik & Numer identyfikacyjny komentarza\newline Dane klienta\newline Nowe dane komentarza & Komunikat \\
+Baza danych & Dane komentarzy\newline Dane klientów & Dane komentarzy\newline Dane klientów \\
+\end{tabela}
+
+\transakcja{Usunięcie komentarza}
+\opis Zadaniem transakcji jest wyszukanie komentarza i jego usunięcie. Operację tą może wykonać pracownik kina.
+\uwarunkowania Użytkownik z listy komentarzy wybieren ten, o żądanej przez niego treści. Następnie usuwa komentarz. System wyświetla komunikat ,,Czy na pewno chcesz usunąć komentarz?''. W przypadku potwierdzenia komunikatu z systemu usuwana jest dany komentarz.
+\begin{tabela}
+Użytkownik & Numer identyfikacyjny komentarza & Komunikat \\
+Baza danych & Dane komentarzy & Dane komentarzy \\
+\end{tabela}
+
+\transakcja{Wyświetlenie komentarzy filmu}
+\opis Zadaniem transakcji jest wyświetlenie komentarzy związanych z danym filmem. Wyświetlenie może wykonać dowolny użytkownik.
+\uwarunkowania Użytkownik wybiera film, o którym chce zobaczyć komentarze. Następnie wyświetlane jest nowe okno z danymi komentarzy, w raz z nazwami klientów, którzy je napisali.
+\begin{tabela}
+Użytkownik & Nazwa filmu & Okno z danymi \\
+Baza danych & Dane filmów\newline Dane komentarzy\newline Dane klientów & Dane filmów\newline Dane komentarzy\newline Dane klientów \\
+\end{tabela}
+
+
+%   TRANSAKCJE OCEN
+
+\transakcja{Dodanie nowej oceny}
+\opis Zadaniem transakcji jest dodanie nowej oceny do bazy danych. Dodanie może być wykonane jedynie przez klienta.
+\uwarunkowania Klient zaznacza stopień oceny, który chce przyznać filmowi. Jeżeli dane oceny nie spełniają ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane oceny''. Jeżeli klient już wcześniej zagłosował na film, zostanie wyświetlony komunikat ,,Już oceniłeś ten film'' i transakcja zostaje przerwana. Nowo dodana ocena otrzymuje kolejny, unikalny numer identyfikacyjny nadany przez SZBD.
+W przypadku poprawnego dodania oceny do bazy, użytkownik otrzymuje komunikat ,,Dziękujemy za oddanie głosu na film!''
+\begin{tabela}
+Użytkownik & Nazwa filmu\newline Dane klienta\newline Dane oceny & Komunikat \\
+Baza danych & Dane filmów\newline Dane klientów\newline Dane ocen & Dane filmów\newline Dane klientów\newline Dane ocen \\
+\end{tabela}
+
+\transakcja{Modyfikacja danych oceny}
+\opis Zadaniem transakcji jest wyszukanie danych o wybranej ocenie i edycja tych danych. Edycję może wykonać jedynie klient kina.
+\uwarunkowania Użytkownik wybiera ocenę, która ma zostać zmodyfikowana i wpisuje jej nowe dane. Jeżeli to nie zalogowany klient był autorem oceny to wyświetla się komunikat ,,Edytować ocenę może jedynie jego autor''. W obu przypadkach transakcja jest przerywana. Jeżeli wpisane dane nie spełniają ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane oceny!''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego zmodyfikowania danych oceny.
+W przypadku poprawnej edycji danych oceny, użytkownik otrzymuje komunikat ,,Ocena została zmodyfikowana!''
+\begin{tabela}
+Użytkownik & Numer identyfikacyjny oceny\newline Dane klienta\newline Nowe dane oceny & Komunikat \\
+Baza danych & Dane ocen\newline Dane klientów & Dane ocen\newline Dane klientów \\
+\end{tabela}
+
+\transakcja{Usunięcie oceny}
+\opis Zadaniem transakcji jest wyszukanie oceny i jej usunięcie. Operację tą może wykonać pracownik kina.
+\uwarunkowania Użytkownik z listy ocen dodanych na dany film wybieren ten, o żądanym przez niego stopniu i autorze (kliencie). Następnie usuwa ocenę. System wyświetla komunikat ,,Czy na pewno chcesz usunąć ocenę?''. W przypadku potwierdzenia komunikatu z systemu usuwana jest dana ocena.
+\begin{tabela}
+Użytkownik & Numer identyfikacyjny oceny\newline Dane klientów & Komunikat \\
+Baza danych & Dane ocen\newline Dane klientów & Dane ocen\newline Dane klientów \\
+\end{tabela}
+
+\transakcja{Wyświetlenie średniej oceny filmu}
+\opis Zadaniem transakcji jest wyświetlenie średniego stopnia ocen związanych z danym filmem. Wyświetlenie może wykonać dowolny użytkownik.
+\uwarunkowania Użytkownik wybiera film, z którego chce zobaczyć średni stopień ocen mu przyznanych. Następnie wyświetlane jest nowe okno ze średnim stopniem ocen.
+\begin{tabela}
+Użytkownik & Numer identyfikacyjny filmu & Okno z danymi \\
+Baza danych & Dane filmów\newline Dane ocen & Dane filmów\newline Dane ocen \\
+\end{tabela}
+
+
+%   TRANSAKCJE FILMOWCÓW
+
+\transakcja{Dodanie nowego filmowca}
+\opis Zadaniem transakcji jest dodanie nowego filmowca do bazy danych. Dodanie może być wykonane przez dowolnego pracownika.
+\uwarunkowania Pracownik wpisuje komplet informacji koniecznych do dodania nowego filmowca. Jeżeli wpisane dane nie spełniają ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane filmowca''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego dodania rekordu.
+Gdy wpisane dane są poprawne, nowo dodany filmowiec otrzymuje kolejny, unikalny numer identyfikacyjny nadany przez SZBD.
+W przypadku poprawnego dodania filmowca do bazy, użytkownik otrzymuje komunikat ,,Nowy filmowiec został poprawnie dodany do bazy!''
+\begin{tabela}
+Użytkownik & Dane filmowca & Komunikat \\
+Baza danych & Dane filmowców & Dane filmowców \\
+\end{tabela}
+
+\transakcja{Modyfikacja danych filmowca}
+\opis Zadaniem transakcji jest wyszukanie danych o wybranym filmowcu i edycja tych danych. Edycję może wykonać wyłącznie kierownika kina lub menedżer.
+\uwarunkowania Pracownik z listy wszystkich filmowców wybiera ten, z żądanym przez niego imieniem i nazwiskiem. Jeżeli wpisane dane nie spełniają  ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane filmowca!''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownego zmodyfikowania danych filmowca.
+W przypadku poprawnej edycji danych filmowca, użytkownik otrzymuje komunikat ,,Dane filmowca zostały zmodyfikowane!''
+\begin{tabela}
+Użytkownik & Imię i nazwisko filmowca\newline Nowe dane filmowca & Komunikat \\
+Baza danych & Dane filmowców & Dane filmowców \\
+\end{tabela}
+
+\transakcja{Wyświetlenie danych o filmowcach}
+\opis Zadaniem transakcji jest wyświetlenie danych o filmowcach. Wyświetlenie może wykonać dowolny użytkownik.
+\uwarunkowania Użytkownik wybiera opcję ,,Wyświetl listę filmowców''. Następnie wyświetlane jest nowe okno z danymi filmowców.
+\begin{tabela}
+Użytkownik & & Okno z danymi \\
+Baza danych & Dane filmowców & Dane filmowców \\
+\end{tabela}
+
+%   TRANSAKCJE KLIENTÓW
+
+\transakcja{Dodanie nowego klienta (rejestracja w serwisie)}
+\opis Zadaniem transakcji jest dodanie nowego klienta do bazy danych. Rejestracja może być wykonana przez dowolnego użytkownika.
+\uwarunkowania Użytkownik wpisuje komplet informacji niezbędnych do założenia nowego konta. Jeżeli wpisane dane nie spełniają ograniczeń dziedzinowych, zostanie wyświetlony komunikat ,,Proszę podać poprawne dane''. Użytkownik będzie miał wtedy możliwość poprawienia wpisanych danych i próby ponownej rejestracji.
+Gdy klient o podanej nazwie lub adresie e-mail już istnieje w systemie, zostanie wyświetlony komunikat ,,Klient o podanych danych już istnieje w systemie''. Ze względów bezpieczeństwa nie będzie wyświetlane dokładnie, które dane nie są unikalne.
+Gdy wpisane dane są poprawne, nowo dodany klient otrzymuje kolejny, unikalny numer identyfikacyjny nadany przez SZBD.
+W przypadku poprawnego dodania klienta do bazy, użytkownik otrzymuje komunikat ,,Dziękujemy! Twoje konto zostało założone w systemie. Od teraz możesz się logować korzystając z podanych danych.''
+\begin{tabela}
+Użytkownik & Dane klienta & Komunikat \\
+Baza danych & Dane klientów & Dane klientów \\
+\end{tabela}
+
+\transakcja{Logowanie klienta}
+\opis Zadaniem transakcji jest zalogowanie się na swoje konto klienckie. Logować się może jedynie niezalogowany użytkownik.
+\uwarunkowania Użytkownik wpisuje swoją nazwę i hasło. Gdy w bazie zostanie znaleziony klient o podanych danych zostaje on poprawnie zalogowany do systemu i pojawia się komunikat ,,Logowanie przebiegło poprawnie''. W przypadku podania błędnych danych wyświetlony zostaje komunikat ,,Podane dane są błędne''.
+\begin{tabela}
+Użytkownik & Dane klienta & Komunikat \\
+Baza danych & Dane klientów & Dane klientów \\
+\end{tabela}
+
+\transakcja{Wyświetlenie danych klienta}
+\opis Zadaniem transakcji jest wyświetlenie danych o kliencie. Wyświetlenie może wykonać dowolny pracownik.
+\uwarunkowania Pracownik wpisuje nazwę lub e-mail klienta. Gdy klient o podanych danych nie znajduje się w bazie, zostanie wyświetlony komunikat ,,Nie znaleziono klienta o podanych danych''. W przeciwnym wypadku zostanie wyświetlone nowe okno z danymi klienta.
+\begin{tabela}
+Użytkownik & Dane klienta & Okno z danymi \\
+Baza danych & Dane klientów & Dane klientów \\
+\end{tabela}
+
+\transakcja{Wyświetlenie danych aktualnie zalogowanego klienta}
+\opis Zadaniem transakcji jest wyświetlenie swoich danych. Wyświetlenie może wykonać klient.
+\uwarunkowania Klient wybiera opcję ,,Zobacz swoje dane''. Następnie wyświetlane jest nowe okno z danymi aktualnie zalogowanego klienta.
+\begin{tabela}
+Użytkownik & Nazwa klienta & Okno z danymi \\
+Baza danych & Dane klientów & Dane klientów \\
+\end{tabela}
+
+\transakcja{Wyświetlenie danych klientów}
+\opis Zadaniem transakcji jest wyświetlenie danych klientów. Wyświetlenie może wykonać dowolny pracownik.
+\uwarunkowania Pracownik wybiera opcję ,,Zobacz listę klientów''. Po wyborze zostanie wyświetlone nowe okno z danymi klientów.
+\begin{tabela}
+Użytkownik & & Okno z danymi \\
+Baza danych & Dane klientów & Dane klientów \\
+\end{tabela}

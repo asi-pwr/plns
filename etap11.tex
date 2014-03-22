@@ -1,0 +1,304 @@
+\begin{relacja}{Sale}{Sale}
+\begin{schemat}
+NrSali & Int+ &  & + &  &  & + & PK &  & SZBD \\
+NrPietra & Int+ &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+NrSali & Numer sali \\
+NrPietra & Numer piętra na którym znajduje się sala \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|Y|}\hline
+\begin{sideways}NrSali\end{sideways}&\begin{sideways}NrPietra\end{sideways}\\\hline
+101 & 1\\
+203 & 2\\
+204 & 2\\
+301 & 3\\
+321 & 4\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Miejsca}{PosiadaM,Sala,Miejsce}
+\begin{schemat}
+IdMiejsca & Int+ &  & + &  &  & + & PK &  & SZBD \\
+NrSali & Int+ &  & + &  &  & + & FK & Sale & SZBD \\
+NrMiejsca & Int+ &  & + &  &  & - &  &  & USER \\
+NrRzedu & Int+ &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+IdMiejsca & Numer identyfikacyjny miejsca, \\
+NrSali & Numer sali \\
+NrMiejsca & Numer miejsca \\
+NrRzedu & Numer rzędu w którym znajduje się miejsce \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|c|c|Y|}\hline
+\begin{sideways}IdMiejsca\end{sideways}&\begin{sideways}NrSali\end{sideways}&\begin{sideways}NrMiejsca\end{sideways}&\begin{sideways}NrRzedu\end{sideways}\\\hline
+1 & 101 & 1 & 1\\
+2 & 101 & 2 & 1\\
+3 & 301 & 3 & 1\\
+4 & 101 & 3 & 1\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Spektakle}{Zawiera,Film,Sala}
+\begin{schemat}
+IdSpektaklu & Int+ &  & + &  &  & + & PK &  & SZBD \\
+IdFilmu & Int+ &  & + &  &  & - & FK & Filmy & SZBD \\
+NrSali & Int+ &  & + &  &  & + & FK & Sale & SZBD \\
+CzasRozpoczecia & DateTime &  & + &  & \verb+<+ CzasZakończenia & - &  &  & USER \\
+CzasZakonczenia & DateTime &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+IdSpektaklu & Identyfikator spektaklu \\
+IdFilmu & Identyfikator filmu \\
+NrSali & Numer sali \\
+CzasRozpoczecia & Data i czas rozpoczęcia spektaklu \\
+CzasZakonczenia & Data i czas zakończenia spektaklu \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|c|c|Y|Y|}\hline
+\begin{sideways}IdSpektaklu\end{sideways}&\begin{sideways}IdFilmu\end{sideways}&\begin{sideways}NrSali\end{sideways}&\begin{sideways}CzasRozpoczecia\end{sideways}&\begin{sideways}CzasZakonczenia\end{sideways}\\\hline
+1 & 1 & 2 & 2012-04-12 10:30 & 2012-04-12 13:00\\
+2 & 1 & 2 & 2012-04-12 13:30 & 2012-04-12 15:30\\
+3 & 3 & 1 & 2012-04-15 23:30 & 2012-04-16 01:30\\
+4 & 3 & 2 & 2012-04-15 23:30 & 2012-04-16 01:30\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Rezerwacje}{Uczestniczy,Klient,Miejsce,Spektakl}
+\begin{schemat}
+IdRezerwacji & Int+ &  & + &  &  & + & PK &  & SZBD \\
+IdKlienta & Int+ &  & + &  &  & - & FK & Klienci & SZBD \\
+IdMiejsca & Int+ &  & + &  &  & - & FK & Miejsca & SZBD \\
+IdSpektaklu & Int+ &  & + &  &  & - & FK & Spektakle & SZBD \\
+CzasWykonania & DateTime &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+IdRezerwacji & Identyfikator rezerwacji \\
+IdKlienta & Identyfikator klienta \\
+IdMiejsca & Numer identyfikacyjny miejsca, \\
+IdSpektaklu & Identyfikator spektaklu \\
+CzasWykonania & Data i czas wykonania rezerwacji \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|c|c|c|Y|}\hline
+\begin{sideways}IdRezerwacji\end{sideways}&\begin{sideways}IdKlienta\end{sideways}&\begin{sideways}IdMiejsca\end{sideways}&\begin{sideways}IdSpektaklu\end{sideways}&\begin{sideways}CzasWykonania\end{sideways}\\\hline
+1 & 1 & 1 & 1 & 2012-04-15 23:30:23\\
+2 & 1 & 2 & 1 & 2012-04-15 23:32:12\\
+3 &  & 4 & 4 & 2012-04-16 12:23:43\\
+4 & 3 & 2 & 5 & 2012-04-17 10:40:08\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Filmy}{Filmy}
+\begin{schemat}
+IdFilmu & Int+ &  & + &  &  & + & PK &  & SZBD \\
+Tytul & String &  & + &  &  & - &  &  & USER \\
+Opis & String &  & + &  &  & - &  &  & USER \\
+DataPremiery & Date &  & - & ,,'' &  & - &  &  & SZBD \\
+KrajPochodzenia & String &  & - & ,,'' & długość \verb+>+ 2 & - &  &  & SZBD \\
+CzasTrwania & Int+ &  & + &  &  & - &  &  & USER \\
+OgraniczenieWieku & Int+ &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+IdFilmu & Identyfikator filmu \\
+Tytul & Tytuł filmu \\
+Opis & Opis filmu \\
+DataPremiery & Data premiery w kinie \\
+KrajPochodzenia & Kraj pochodzenia filmu \\
+CzasTrwania & Czas trwania filmu (w sekundach) \\
+OgraniczenieWieku & Ograniczenie wiekowe filmu \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|Y|Y|Y|Y|c|c|}\hline
+\begin{sideways}IdFilmu\end{sideways}&\begin{sideways}Tytul\end{sideways}&\begin{sideways}Opis\end{sideways}&\begin{sideways}DataPremiery\end{sideways}&\begin{sideways}KrajPochodzenia\end{sideways}&\begin{sideways}CzasTrwania\end{sideways}&\begin{sideways}OgraniczenieWieku\end{sideways}\\\hline
+1 & Forrest Gump & Wyśmienity film & 1999-02-13 & USA & 7200 & 15\\
+2 & Blood2 & Dobry horror! & 2002-01-15 & Kanada & 6800 & 18\\
+3 & Titanic & Klasyczny film. & 1997-03-10 & USA & 7000 & 13\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Gatunki}{Gatunki}
+\begin{schemat}
+IdGatunku & Int+ &  & + &  &  & + & PK &  & SZBD \\
+Nazwa & String &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+IdGatunku & Identyfikator gatunku \\
+Nazwa & Nazwa gatunku \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|Y|}\hline
+\begin{sideways}IdGatunku\end{sideways}&\begin{sideways}Nazwa\end{sideways}\\\hline
+1 & Komedia\\
+2 & Horror\\
+3 & SF\\
+4 & Thriller\\
+5 & Miłosny\\
+6 & Dokumentalny\\
+7 & Fabularny\\
+8 & Dramat\\
+9 & Rysunkowy\\
+10 & Animowany\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{GatunkiFilmow}{Ma,Film,Gatunek}
+\begin{schemat}
+IdFilmu & Int+ &  & + &  &  & - & FK & Filmy & SZBD \\
+IdGatunku & Int+ &  & + &  &  & - & FK & Gatunki & SZBD \\
+\end{schemat}
+\begin{atrybuty}
+IdFilmu & Identyfikator filmu \\
+IdGatunku & Identyfikator gatunku \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|Y|}\hline
+\begin{sideways}IdFilmu\end{sideways}&\begin{sideways}IdGatunku\end{sideways}\\\hline
+1 & 1\\
+2 & 1\\
+1 & 2\\
+3 & 2\\
+3 & 5\\
+3 & 6\\
+1 & 5\\
+1 & 4\\
+43 & 5\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Komentarze}{PosiadaK,Film,Klient}
+\begin{schemat}
+IdKomentarza & Int+ &  & + &  &  & + & PK &  & SZBD \\
+IdFilmu & Int+ &  & + &  &  & - & FK & Filmy & SZBD \\
+IdKlienta & Int+ &  & + &  &  & - & FK & Klienci & SZBD \\
+Tytuł & String &  & - & ,,'' &  & - &  &  & SZBD \\
+Zawartosc & String &  & + &  &  & - &  &  & USER \\
+CzasNapisania & DateTime &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+IdKomentarza & Identyfikator komentarza \\
+IdFilmu & Identyfikator filmu \\
+IdKlienta & Identyfikator klienta \\
+Tytuł & Tytuł komentarza \\
+Zawartosc & Treść komentarza \\
+CzasNapisania & Data i czas napisania komentarza \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|c|c|Y|Y|Y|}\hline
+\begin{sideways}IdKomentarza\end{sideways}&\begin{sideways}IdFilmu\end{sideways}&\begin{sideways}IdKlienta\end{sideways}&\begin{sideways}Tytuł\end{sideways}&\begin{sideways}Zawartosc\end{sideways}&\begin{sideways}CzasNapisania\end{sideways}\\\hline
+1 & 1 & 1 & Moja opinia & Film był bardzo słaby! & 2012-04-13 10:23:32\\
+2 & 1 & 2 &  & A moim zdaniem był dobry. & 2012-04-13 10:25:35\\
+3 & 1 & 1 &  & Nie zgadzam się z Tobą. & 2012-04-13 10:34:22\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Oceny}{PosiadaO,Film,Klient}
+\begin{schemat}
+IdOceny & Int+ &  & + &  &  & + & PK &  & SZBD \\
+IdFilmu & Int+ &  & + &  &  & - & FK & Filmy & SZBD \\
+IdKlienta & Int+ &  & + &  &  & - & FK & Klienci & SZBD \\
+Stopien & Int+ &  & + &  & \verb+<+ 5 & - &  &  & USER \\
+CzasDodania & DateTime &  & + & NOW() &  & - &  &  & SZBD \\
+\end{schemat}
+\begin{atrybuty}
+IdOceny & Identyfikator oceny \\
+IdFilmu & Identyfikator filmu \\
+IdKlienta & Identyfikator klienta \\
+Stopien & Stopień oceny \\
+CzasDodania & Data i czas dodania oceny \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|c|c|c|Y|}\hline
+\begin{sideways}IdOceny\end{sideways}&\begin{sideways}IdFilmu\end{sideways}&\begin{sideways}IdKlienta\end{sideways}&\begin{sideways}Stopien\end{sideways}&\begin{sideways}CzasDodania\end{sideways}\\\hline
+1 & 1 & 1 & 3 & 2012-04-13 10:34:22\\
+2 & 1 & 3 & 5 & 2012-04-15 12:18:12\\
+3 & 3 & 3 & 3 & 2012-04-15 14:38:55\\
+4 & 5 & 7 & 3 & 2012-04-17 18:56:25\\
+5 & 35 & 17 & 0 & 2012-05-17 13:23:15\\
+6 & 35 & 355 & 1 & 2012-05-17 17:37:46\\
+7 & 213 & 17 & 0 & 2012-05-18 23:26:20\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Klienci}{Klienci}
+\begin{schemat}
+IdKlienta & Int+ &  & + &  &  & + & PK &  & SZBD \\
+Nazwa & String &  & + &  & długość \verb+>+ 3 & - &  &  & USER \\
+Haslo & String &  & + &  &  & - &  &  & USER \\
+Email & String &  & + &  &  & - &  &  & USER \\
+Imie & String &  & + &  & długość \verb+>+ 2 & - &  &  & USER \\
+Nazwisko & String &  & + &  & długość \verb+>+ 2 & - &  &  & USER \\
+DataUrodzenia & Date &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+IdKlienta & Identyfikator klienta \\
+Nazwa & Nazwa użytkownika (jego ,,Login'') \\
+Haslo & Hasło użytkownika \\
+Email & Adres poczty elektronicznej \\
+Imie & Imie klienta \\
+Nazwisko & Nazwisko klienta \\
+DataUrodzenia & Data urodzenia klienta \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|Y|Y|Y|Y|Y|Y|}\hline
+\begin{sideways}IdKlienta\end{sideways}&\begin{sideways}Nazwa\end{sideways}&\begin{sideways}Haslo\end{sideways}&\begin{sideways}Email\end{sideways}&\begin{sideways}Imie\end{sideways}&\begin{sideways}Nazwisko\end{sideways}&\begin{sideways}DataUrodzenia\end{sideways}\\\hline
+1 & ala123 & kwiatki4 & ala@o2.pl & Ala & Kowalska & 1990-03-23\\
+2 & ola321 & kwiatki4 & ola@tlen.pl & Ola & Kowalska & 1984-02-13\\
+3 & aleksander & tajne123 & jan@wp.pl & Aleksander & Nowak & 1982-06-23\\
+4 & helioslepszy & helioss2 & adm@hell.pl & Piotr & Ostrowski & 1995-02-17\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Filmowcy}{Filmowcy}
+\begin{schemat}
+IdFilmowca & Int+ &  & + &  &  & + & PK &  & SZBD \\
+Imie & String &  & + &  & długość \verb+>+ 2 & - &  &  & USER \\
+Nazwisko & String &  & + &  & długość \verb+>+ 2 & - &  &  & USER \\
+DataUrodzenia & Date &  & - & ,,'' &  & - &  &  & SZBD \\
+Narodowosc & String &  & - & ,,'' & długość \verb+>+ 2 & - &  &  & SZBD \\
+\end{schemat}
+\begin{atrybuty}
+IdFilmowca & Identyfikator filmowca \\
+Imie & Imię filmowca \\
+Nazwisko & Nazwisko filmowca \\
+DataUrodzenia & Data urodzenia filmowca \\
+Narodowosc & Narodowość filmowca \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|Y|Y|Y|Y|}\hline
+\begin{sideways}IdFilmowca\end{sideways}&\begin{sideways}Imie\end{sideways}&\begin{sideways}Nazwisko\end{sideways}&\begin{sideways}DataUrodzenia\end{sideways}&\begin{sideways}Narodowosc\end{sideways}\\\hline
+1 & Cezary & Pazura & 1960-03-24 & Polska\\
+2 & Bruce & Willis & 1975-01-16 & USA\\
+3 & Steven & Spielberg & 1954-07-14 & USA\\
+4 & Patrick & Paul & 1985-03-21 & USA\\
+5 & Jan & Machulski & 1965-04-11 & Polska\\
+6 & Adam & Kowalski & 1935-01-21 & Polska\\
+7 & Anna & Bielicka & 1915-10-09 & Polska\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Role}{Zatrudniony,Filmowiec,Film}
+\begin{schemat}
+IdFilmowca & Int+ &  & + &  &  & - & FK & Filmowcy & SZBD \\
+IdFilmu & Int+ &  & + &  &  & - & FK & Filmy & SZBD \\
+NazwaRoli & String &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+IdFilmowca & Identyfikator filmowca \\
+IdFilmu & Identyfikator filmu \\
+NazwaRoli & Nazwa roli filmowca przy tworzeniu filmu \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|c|Y|}\hline
+\begin{sideways}IdFilmowca\end{sideways}&\begin{sideways}IdFilmu\end{sideways}&\begin{sideways}NazwaRoli\end{sideways}\\\hline
+1 & 1 & Aktor\\
+1 & 2 & Statysta\\
+2 & 1 & Reżyser\\
+50 & 12 & Bohater pierwszoplanowy\\
+13 & 12 & Kamerzysta\\
+112 & 12 & Aktor\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+\begin{relacja}{Kasjerzy}{Kasjerzy}
+\begin{schemat}
+IdKasjera & Int+ &  & + &  &  & + & PK &  & SZBD \\
+Login & String &  & + &  &  & - &  &  & USER \\
+Haslo & String &  & + &  &  & - &  &  & USER \\
+Email & String &  & + &  &  & - &  &  & USER \\
+Imie & String &  & + &  &  & - &  &  & USER \\
+Nazwisko & String &  & + &  &  & - &  &  & USER \\
+\end{schemat}
+\begin{atrybuty}
+IdKasjera & Identyfikator kasjera \\
+Login & Nazwa kasjera \\
+Haslo & Hasło kasjera \\
+Email & Adres poczty elektronicznej \\
+Imie & Imię kasjera \\
+Nazwisko & Nazwisko kasjera \\
+\end{atrybuty}
+\begin{przyklady}\begin{tabularx}{\textwidth}{|c|Y|Y|Y|Y|Y|}\hline
+\begin{sideways}IdKasjera\end{sideways}&\begin{sideways}Login\end{sideways}&\begin{sideways}Haslo\end{sideways}&\begin{sideways}Email\end{sideways}&\begin{sideways}Imie\end{sideways}&\begin{sideways}Nazwisko\end{sideways}\\\hline
+1 & jkowalski & asdf & jkowalski@p.pl & Jan & Kowalski\\
+2 & andrzej & 123456789 & twardy@kino.pl & Andrzej & Twardy\\
+\hline\end{tabularx}\end{przyklady}
+\end{relacja}
+
