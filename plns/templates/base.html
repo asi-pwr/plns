@@ -1,31 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <!-- Szablon mocno bazowy, ale graficznie mozna go potem porozwijac :P-->
   <head>
-    <title> {{ title }}  - PLNs Web Aplication</title>
+    <title>{% block title %} PLNs Project {% endblock %}</title>
     <meta http-equiv="content-type" 
 	  content="text/html;charset=utf-8" />
-    <style type="text/css" media="screen">
-      @import url('style.css');
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   
   <body>
     <div class="wrapper">
       <div class="header">
-	<h1>{{ title }} - PLNs Project</h1> 
+	<h1>{{ title }}{% block title %} PLNs Project{% endblock %}</h1> 
 	<div class="info"> 
-	  {% if is_logged_in %} Welcome! {% else %} Please sign in. {% endif %}
+	  {% if view.request.user.is_authenticated %} Welcome! {% else %} Please sign in. {% endif %}
 	</div>
       </div>
       
       <div class="menu">
-	{{ navigation }}
+	<ul>
+	  <li> Menu entry 1</li>
+	  <li> Menu entry 2</li>
+	  <li> Menu entry 3</li>
+	</ul>
       </div>
       
       <div class="content">
-	{{ content }}
+	{% block content %} {% endblock %}}
       </div>
       
       <div class="footer">

@@ -1,13 +1,14 @@
-body {
+body 
+{
     background-image: url(img/bg.png);
     background-repeat: repeat-x;
 	background-size: 100% auto;
 }
 
-.wrapper {
+.wrapper 
+{
     background-image: url(img/bg2.png);
     background-repeat: repeat-x;
-
     max-width: 900px;
     margin: 0 auto;
     position: relative;
@@ -30,7 +31,8 @@ body {
     padding-left: 10px;
 }
 
-.wrapper .header .info{
+.wrapper .header .info
+{
     text-align: right;
     font-size: 10px;
 }
@@ -43,7 +45,8 @@ body {
     border-width: 2px 0px;
 }
 
-.wrapper .footer {
+.wrapper .footer 
+{
     text-align: center;
     background-color: ;
 }

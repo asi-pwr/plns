@@ -4,11 +4,11 @@ from mptt.models import MPTTModel, TreeForeignKey
 from plns.users.models import User
 
 class PaymentManager(models.Manager):
-    def data_sort(self, date_first, date_second):
-        return self.filter(timestamp__range=(date_first, date_second))
+    def date_sort(self, date_start, date_end):
+        return self.filter(timestamp__range=(date_start, date_end))
 
-    def amount_sort(self, amount_first, amount_second):
-        return self.filter(amount__range=(amount_first, amount_second))
+    def amount_sort(self, amount_start, amount_end):
+        return self.filter(amount__range=(amount_start, amount_end))
 
 class Payment(models.Model):
     name = models.TextField(_('Name'))
