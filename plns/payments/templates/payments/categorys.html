@@ -2,7 +2,7 @@
 <ul>
     {% recursetree nodes %}
         <li>
-            {{ node.name }}
+            {{ node.id }} {{  node.name}}
             {% if not node.is_leaf_node %}
                 <ul class="children">
                     {{ children }}
@@ -11,3 +11,9 @@
         </li>
     {% endrecursetree %}
 </ul>
+<p>Add new Category</p>
+<form method="post" action=".">
+	{% csrf_token %}
+	{{ form.as_p }}
+<input type="submit" name="submit" value="Create Category" />
+</form>

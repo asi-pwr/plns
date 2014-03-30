@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from plns.payments.views import Categories
 
 from django.contrib import admin
 admin.autodiscover()
@@ -10,5 +11,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^categorys/$','plns.payments.views.show_categorys'),
+    url(r'^categories/$',Categories.as_view()),
 
 )
