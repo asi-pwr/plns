@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'plns.users',
     'plns.payments',
+    'plns.stats',
     'mptt'
 )
 AUTH_USER_MODEL = 'users.User'
