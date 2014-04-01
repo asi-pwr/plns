@@ -63,3 +63,5 @@ class UserChangeForm(forms.ModelForm):
 
     def clean_password(self):
         return self.initial["password"]
+class Login:
+    pass
