@@ -1,14 +1,15 @@
 import datetime
 from plns.payments import models
 from plns.stats.util import GraphMaker
+from plns.users.models import User
 
 class LineGraphMaker(GraphMaker):
     html_template = "<canvas id=\"oneChart\" width=\"500\" height=\"500\"></canvas>"
+    database = models.PaymentManager
+    username = User.get_username()
 
-    def __init__(self, username, chart_type, database, date_from, date_to):
-        self.username = username
+    def __init__(self, chart_type,date_from, date_to):
         self.chart_type = chart_type
-        self.database = database
         self.date_from = date_from
         self.date_to = date_to
 
